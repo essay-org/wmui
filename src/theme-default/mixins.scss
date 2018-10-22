@@ -1,0 +1,19 @@
+@import './var.scss';
+
+@mixin border-hairline($top:0, $right:0, $bottom:0, $left:0, $color: $gray) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid $color;
+    border-width: $top $right $bottom $left;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5, .5);
+    box-sizing: border-box;
+    transform-origin: 0 0;
+  }
+}

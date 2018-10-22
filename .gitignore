@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+coverage/
+template/
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+NOTE.md
