@@ -19,5 +19,5 @@ Button 按钮组件
 | 参数 | 描述 | 类型 | 默认值 | 可选值 |
 |------|-----|------|--------|-------|
 | type  | 按钮类型 | String | button | reset/submit |
-| className  | 自定义类名 | String | 无 | 无 |
+| className  | 自定义类名 | String |
 | disabled | 是否禁用 | Boolean | false | true |

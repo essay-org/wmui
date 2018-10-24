@@ -1,6 +1,9 @@
 <template>
   <label class="wmui-switch">
-    <input type="checkbox" :checked="value" @change="changeValue" class="wmui-switch-input">
+    <input type="checkbox" 
+    :checked="value" 
+    @change="changeValue" 
+    class="wmui-switch-input">
     <span class="wmui-switch-button"></span>
   </label>
 </template>
@@ -8,7 +11,6 @@
   export default {
     name: 'wmui-switch',
     props: {
-      // 初始化checkbox状态
       value: {
         type: Boolean,
         default: false
@@ -26,8 +28,6 @@
 <style lang="scss">
 @import '../../src/theme-default/var.scss';
 .wmui-switch {
-  display: flex;
-  align-items: center;
   position: relative;
 }
 
@@ -38,22 +38,23 @@
 }
 
 .wmui-switch-button {
+  cursor: pointer;
+  box-sizing: border-box;
   display: inline-block;
   position: relative;
-  width: 100px;
-  height: 60px;
+  width: 44px;
+  height: 22px;
   border: 1px solid $gray-light;
-  border-radius: 31px;
+  border-radius: 11px;
   background-color: $gray-light;
 }
 .wmui-switch-button::after {
   content: "";
   position: absolute;
-  top: 2px;
   left: 1px;
-  width: 56px;
-  height: 56px;
-  border-radius: 56px;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
   background-color: $white;
   box-shadow: 0 1px 3px rgba(0,0,0,.4);
   transform: translateX(0);
@@ -61,13 +62,13 @@
 }
 
 .wmui-switch-input:checked + .wmui-switch-button {
-  background-color: $green;
-  border: 1px solid $green;
+  background-color: $primary;
+  border: 1px solid $primary;
   display: inline-block;
   position: relative;
-  border-radius: 31px;
+  border-radius: 20px;
 }
 .wmui-switch-input:checked + .wmui-switch-button::after {
-  transform: translateX(41px);
+  transform: translateX(20px);
 }
 </style>

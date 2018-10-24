@@ -6,7 +6,7 @@
 <script>
 import mask from '../_mask/index.js'
 export default {
-  name: 'WmuiPopup',
+  name: 'wmui-popup',
   mixins: [mask],
   props: {
     // popup的状态值

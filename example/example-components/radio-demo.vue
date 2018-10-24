@@ -1,25 +1,23 @@
 <template>
-  <div class="radio-demo">
+  <div class="demo">
     <!-- 方式一 -->
-    <div v-for="(item,index) in listData1" :key="item">
+    <div v-for="(item,index) in listData1" :key="item" class="mb20">
       <wmui-radio 
       v-model="value1" 
-      :currentValue="value1" 
       :radioValue="item"
       name="radio1"/>
     </div>
-    <p class="radio-demo-value"> {{value1}}</p>
+    <p class="mb20"> {{value1}}</p>
     <!-- 方式二 -->
-      <div v-for="(item,index) in listData2" :key="item.value">
+      <div v-for="(item,index) in listData2" :key="item.value" class="mb20">
         <wmui-radio 
         v-model="value2" 
-        :currentValue="value2" 
         :disabled="item.disabled" 
         :radioText="item.text"
         :radioValue="item.value"
         name="radio2"/>
       </div>
-    <p class="radio-demo-value"> {{value2}}</p>
+    <p class="mb20"> {{value2}}</p>
   </div>
 </template>
 <script>
@@ -42,16 +40,9 @@ export default {
           disabled: true
         }
       ],
-      value2: '3'
+      value2: '2'
     }
   }
 }
-
 </script>
-<style lang="scss">
-.radio-demo {
-  margin: 30px;
 
-}
-
-</style>

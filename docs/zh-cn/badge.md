@@ -26,6 +26,6 @@ off属性可以关闭数量显示，只显示一个小红点
 
 | 参数 | 描述 | 类型 | 默认值 | 可选值 |
 |------|-----|------|--------|-------|
-| value  | 显示内容 | String / Number | 0 | 无 |
-| limit  | 收纳数值 | Number | 99 | 无 |
-| off | 是否显示数量 | Boolean | true | false |
+| value  | 显示内容 | String / Number | 0 |
+| limit  | 收纳数值 | Number | 99 |
+| off | 是否显示数量 | Boolean | false | true |

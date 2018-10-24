@@ -1,12 +1,12 @@
 <template>
-  <section class="ivc-swipe-item">
+  <section class="wmui-swipe-item">
     <slot></slot>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'ivc-swipe-item',
+  name: 'wmui-swipe-item',
   props: {
     title: {
       type: String,
@@ -22,7 +22,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.ivc-swipe-item {
+.wmui-swipe-item {
   img {
     display: block;
     height: 100%;

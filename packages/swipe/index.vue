@@ -21,7 +21,7 @@
 <script>
 import {once, addClass, removeClass} from '../_utils/dom.js'
 export default {
-  name: 'WmuiSwipe',
+  name: 'wmui-swipe',
   data () {
     return {
       isReady: false,

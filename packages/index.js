@@ -3,11 +3,10 @@ import Badge from './Badge/index.vue'
 import Switch from './switch/index.vue'
 import Checkbox from './checkbox/index.vue'
 import Radio from './radio/index.vue'
-// import Popup from './popup/index.vue'
-// import Scroller from './scroller/index.vue'
-// import Tooltip from './tooltip/index.vue'
-// import Swipe from './swipe/index.vue'
-// import SwipeItem from './swipe/SwipeItem.vue'
+import Popup from './popup/index.vue'
+import Tooltip from './tooltip/index.vue'
+import Swipe from './swipe/index.vue'
+import SwipeItem from './swipe/SwipeItem.vue'
 
 const version = '0.0.1'
 const components = [
@@ -15,7 +14,11 @@ const components = [
   Badge,
   Checkbox,
   Radio,
-  Switch
+  Switch,
+  Popup,
+  Tooltip,
+  Swipe,
+  SwipeItem
 ]
 
 const install = function (Vue) {
@@ -37,7 +40,11 @@ export {
   Badge,
   Checkbox,
   Radio,
-  Switch
+  Switch,
+  Popup,
+  Tooltip,
+  Swipe,
+  SwipeItem
 }
 
 // 全部引入

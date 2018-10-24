@@ -1,10 +1,10 @@
 <template>
-  <div class="switch-demo">
+  <div class="demo">
     <div>{{ status1 }}</div>
-    <wmui-switch v-model="value1"></wmui-switch>
+    <wmui-switch v-model="value1"/>
     
     <div>{{ status2 }}</div>
-    <wmui-switch v-model="value2"></wmui-switch>
+    <wmui-switch v-model="value2"/>
   </div>
 </template>
 <script>
@@ -17,14 +17,11 @@ export default {
   },
   computed: {
     status1 () {
-      // console.log(this.value1)
       return this.value1 ? '开启状态' : '关闭状态'
     },
     status2 () {
       return this.value2 ? '开启状态' : '关闭状态'
-    },
+    }
   }
 }
 </script>
-<style lang="scss">
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="badge-demo">
+  <div class="demo">
     <!-- 传入文字 -->
     <wmui-badge value="NEW"></wmui-badge>
 
@@ -21,8 +21,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.badge-demo {
-  margin: 30px;
-}
-</style>

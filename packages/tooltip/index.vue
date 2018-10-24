@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'WmuiTooltip'
+    name: 'wmui-tooltip'
   }
 </script>
 <style lang="scss">
