@@ -42,7 +42,7 @@ npm i babel-plugin-component -D
   ...
   "plugins": ["transform-vue-jsx",["babel-plugin-component", {
     "libraryName": "wmui",
-  }]],
+  }]]
   ...
 }
 ```
@@ -52,7 +52,7 @@ npm i babel-plugin-component -D
 ```javascript
 import Vue from 'vue'
 import App from './App.vue'
-import {Search, Button} from 'wmui'
+import {Button, Badge} from 'wmui'
 
 new Vue({
   el: '#app',

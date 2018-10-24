@@ -1,27 +1,23 @@
 <template>
   <div class="checkbox-demo">
-    <ivc-header title="Checkbox">
-      <router-link slot="left" to="/">
-        <i class="iconfont icon-left"></i>
-      </router-link>
-    </ivc-header>
+
   <!-- 方式一 -->
-    <ivc-cell v-for="(item,index) in listData1" :key="index">
+    <div v-for="(item,index) in listData1" :key="index">
      <div slot="left">
-       <ivc-checkbox v-model="value1" :currentValue="value1" :text="item"></ivc-checkbox>
+       <wmui-checkbox v-model="value1" :currentValue="value1" :text="item"></wmui-checkbox>
        <span>{{item}}</span>
        </div>
-    </ivc-cell>
+    </div>
   <p class="checkbox-demo-value"> {{value1}}</p>
 
   <!-- 方式二 -->
   <div >
-    <ivc-cell v-for="(item,index) in listData2" :key="index">
+    <div v-for="(item,index) in listData2" :key="index">
      <div slot="left">
-       <ivc-checkbox v-model="value2" :currentValue="value2" :disabled="item.disabled" :text="item.value"></ivc-checkbox>
+       <wmui-checkbox v-model="value2" :currentValue="value2" :disabled="item.disabled" :text="item.value"></wmui-checkbox>
         <span>{{item.text}}</span>
        </div>
-    </ivc-cell>
+    </div>
   </div>
   <p class="checkbox-demo-value"> {{value2}}</p>
 

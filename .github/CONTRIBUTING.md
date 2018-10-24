@@ -11,4 +11,8 @@
 
 在docs/zh-cn文件夹下添加markdown文档，和组件名同名。在config中配置路由信息
 
+## iconfont扩展
+
+如果更新了iconfont，需要用下载的文件替换src/theme-default/fonts，然后更新iconfont-demo演示文件
+
 ## 单元测试

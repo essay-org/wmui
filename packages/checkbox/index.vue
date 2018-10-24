@@ -1,12 +1,12 @@
 <template>
-  <div class="ivc-checkbox">
-    <input type="checkbox" v-model="currentCheck" :disabled="disabled" :value="text" @change="changeValue" class="ivc-checkbox-input">
-    <span :class="['ivc-checkbox-button', {'ivc-checkbox-disabled': disabled}]"><i class="ivc-icon-check"></i></span>
+  <div class="wmui-checkbox">
+    <input type="checkbox" v-model="currentCheck" :disabled="disabled" :value="text" @change="changeValue" class="wmui-checkbox-input">
+    <span :class="['wmui-checkbox-button', {'wmui-checkbox-disabled': disabled}]"><i class="wmui-icon-check"></i></span>
   </div>
 </template>
 <script>
 export default {
-  name: 'ivc-checkbox',
+  name: 'wmui-checkbox',
   props: {
     text: {
       type: String
@@ -42,52 +42,52 @@ export default {
 
 </script>
 <style lang="scss">
-@import '../../src/theme-default/common/var.scss';
-.ivc-checkbox {
+@import '../../src/theme-default/var.scss';
+.wmui-checkbox {
   position: relative;
   display: inline-block;
-  height: 40px; /* px */
-  width: 40px; /* px */
+  height: 40px;
+  width: 40px;
   vertical-align: middle;
-  .ivc-icon-check {
+  .wmui-icon-check {
     visibility: hidden;
     position: absolute;
-    top: 2px; /* px */
-    left: 2px; /* px */
+    top: 2px;
+    left: 2px;
   }
   &-input {
     z-index: 9;
-    width: 40px; /* px */
-    height: 40px; /* px */
+    width: 40px;
+    height: 40px;
     position: absolute;
     opacity: 0;
     outline: 0;
     top: 50%;
-    margin-top: -20px; /* px */
+    margin-top: -20px;
     vertical-align: middle;
   }
   &-button {
     box-sizing: border-box;
     position: absolute;
-    width: 40px; /* px */
-    height: 40px; /* px */
-    border: 1px solid $gray; /* no */
+    width: 40px;
+    height: 40px;
+    border: 1px solid $gray;
     background: $white;
     border-radius: 50%;
     display: inline-block;
     top: 50%;
-    margin-top: -20px; /* px */
+    margin-top: -20px;
     vertical-align: middle;
   }
 
   &-disabled {
     background: $gray-light;
-    border: 1px solid $gray; /* no */
+    border: 1px solid $gray;
   }
   &-input:checked+&-button {
-    border: 1px solid $primary; /* no */
+    border: 1px solid $primary;
     background-color: $primary;
-    .ivc-icon-check {
+    .wmui-icon-check {
       color: $white;
       visibility: visible;
     }
@@ -95,9 +95,9 @@ export default {
 
 
   &-input:checked+&-disabled {
-    border: 1px solid $gray; /* no */
+    border: 1px solid $gray;
     background-color: $gray-light;
-    .ivc-icon-check {
+    .wmui-icon-check {
       color: $gray;
     }
   }

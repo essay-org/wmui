@@ -6,7 +6,7 @@
 </template>
 <script>
   export default {
-    name: 'WmuiSwitch',
+    name: 'wmui-switch',
     props: {
       // 初始化checkbox状态
       value: {
@@ -24,7 +24,7 @@
   }
 </script>
 <style lang="scss">
-@import '../../src/theme-default/common/var.scss';
+@import '../../src/theme-default/var.scss';
 .wmui-switch {
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@
   position: relative;
   width: 100px;
   height: 60px;
-  border: 1px solid $gray-light; /* no */
+  border: 1px solid $gray-light;
   border-radius: 31px;
   background-color: $gray-light;
 }
@@ -62,7 +62,7 @@
 
 .wmui-switch-input:checked + .wmui-switch-button {
   background-color: $green;
-  border: 1px solid $green; /* no */
+  border: 1px solid $green;
   display: inline-block;
   position: relative;
   border-radius: 31px;

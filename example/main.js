@@ -4,7 +4,7 @@ import router from './router'
 import wmui from '../packages'
 import comps from './example-components/config.js'
 import '../src/theme-default/index.scss'
-// import '../src/theme-default/fonts/iconfont.css'
+import '../src/theme-default/fonts/iconfont.css'
 Vue.use(wmui)
 
 // 注册演示组件
