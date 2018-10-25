@@ -2,7 +2,6 @@
 
 @mixin border-hairline($top:0, $right:0, $bottom:0, $left:0, $color: $gray) {
   position: relative;
-
   &::before {
     content: '';
     position: absolute;
@@ -15,5 +14,72 @@
     transform: scale(.5, .5);
     box-sizing: border-box;
     transform-origin: 0 0;
+  }
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin border-top-radius($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-right-radius($radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin triangle($size: 10px, $bg: $gray-800, $position: top) {
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: $size;
+    height: $size;
+    z-index: 1010;
+    background-color: $bg;
+    transform: rotate(45deg);
+
+    @if $position==right {
+      top: 50%;
+      right: -($size / 2);
+      margin-top: -($size / 2);
+    }
+
+    @else if $position==bottom {
+      bottom: -($size / 2);
+      left: 50%;
+      margin-left: -($size / 2);
+    }
+
+    @else if $position==left {
+      top: 50%;
+      left: -($size / 2);
+      margin-top: -($size / 2);
+    }
+
+    @else {
+      top: -($size / 2);
+      left: 50%;
+      margin-left: -($size / 2);
+    }
   }
 }

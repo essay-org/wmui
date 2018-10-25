@@ -9,7 +9,7 @@ export default {
     en: 'iconfont',
     zh: '字体图标'
   }, {
-    en: 'layout',
+    en: 'grid',
     zh: '布局'
   }],
   Components: [{

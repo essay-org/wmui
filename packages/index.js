@@ -1,5 +1,5 @@
-import Button from './Button/index.vue'
-import Badge from './Badge/index.vue'
+import Button from './button/index.vue'
+import Badge from './badge/index.vue'
 import Switch from './switch/index.vue'
 import Checkbox from './checkbox/index.vue'
 import Radio from './radio/index.vue'
