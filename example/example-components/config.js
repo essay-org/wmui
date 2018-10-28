@@ -7,7 +7,9 @@ let compontens = [
   'switch-demo',
   'grid-demo',
   'select-demo',
-  'popup-demo'
+  'popup-demo',
+  'lazyload-demo',
+  'scrollspy-demo'
 ]
 
 export default compontens

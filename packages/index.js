@@ -5,6 +5,7 @@ import Checkbox from './checkbox/index.vue'
 import Radio from './radio/index.vue'
 import Select from './select/index.vue'
 import Popup from './popup/index.vue'
+import LazyLoad from './lazyload/index.vue'
 import Tooltip from './tooltip/index.vue'
 import Swipe from './swipe/index.vue'
 import SwipeItem from './swipe/SwipeItem.vue'
@@ -18,6 +19,7 @@ const components = [
   Select,
   Switch,
   Popup,
+  LazyLoad,
   Tooltip,
   Swipe,
   SwipeItem
@@ -45,6 +47,7 @@ export {
   Select,
   Switch,
   Popup,
+  LazyLoad,
   Tooltip,
   Swipe,
   SwipeItem

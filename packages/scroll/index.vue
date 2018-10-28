@@ -2,7 +2,7 @@
   <div class="wmui-scroll" v-scroll="onLoad">
     <slot></slot>
     <p v-if="loading" >加载中...</p>
-    <p v-if="noMoreData" class="w-no-more-data">没有更多数据了</p>
+    <p v-if="noMoreData" class="wmui-no-data">没有更多数据了</p>
   </div>
 </template>
 <script>
@@ -24,7 +24,7 @@ export default {
           // 这里无法访问到this,所以通过外部的onLoad函数来判断是否在loading中
           let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
           // 滚动条到达底部，执行loadData函数
-          if (scrollTop + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+          if (scrollTop + document.documentElement.clientHeight + 100 >= document.documentElement.scrollHeight) {
             let onLoad = binding.value
             onLoad()
           }
@@ -37,18 +37,15 @@ export default {
       this.noMoreData = true
     },
     start () {
-      if (this.loading) {
-        return
+      if (!this.loading) {
+        this.loading = true
       }
-      this.loading = true
     },
     finish () {
       this.loading = false
     },
     onLoad () {
-      if (this.loading) {
-        return
-      } else {
+      if (!this.loading) {
         this.loadData()
       }
     }
@@ -56,10 +53,10 @@ export default {
 }
 </script>
 <style lang="scss">
-.w-loading {
+.wmui-loading {
   margin: 30px;
 }
-.w-no-more-data {
+.wmui-no-data {
   margin: 30px;
   text-align: center;
   color: $gray-light;

@@ -30,5 +30,11 @@ export default {
   },{
     en: 'select',
     zh: '下拉框'
+  }, {
+    en: 'popup',
+    zh: '弹出层'
+  },{
+    en: 'lazyload',
+    zh: '懒加载'
   }]
 }

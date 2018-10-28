@@ -2,9 +2,9 @@
   <div class="container">
     <header style="height: 50px; background-color: #333;">I am header</header>
     <div class="intro">
-     <p>使用：必须在data里定义navs,classes,scrollInfo, activeIndex这四个变量。navs定义导航数据。classes定义每个面板特有的类名，scrollInfo用于初始化每个面板的offsetTop。activeIndex定义需要高亮菜单的索引，默认值0可用于定义首页菜单。</p>
+      <p>使用：必须在data里定义navs,classes,scrollInfo, activeIndex这四个变量。navs定义导航数据。classes定义每个面板特有的类名，scrollInfo用于初始化每个面板的offsetTop。activeIndex定义需要高亮菜单的索引，默认值0可用于定义首页菜单。</p>
     </div>
- 
+
     <!-- 核心开始 -->
     <section class="w-scroll-navs">
       <ul>
@@ -29,8 +29,6 @@
       </section>
     </section>
     <!-- 核心结束 -->
-
-
 
     <footer style="height: 200px; background-color: #333">I am footer </footer>
   </div>
@@ -64,7 +62,7 @@ export default {
     go (index) {
       let end = this.scrollInfo[index - 1]
       let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-      if(index === 0) {
+      if (index === 0) {
         end = 0
       }
       animation(scrollTop, end, 1000, 'Quart.easeOut', function (value) {
@@ -86,7 +84,7 @@ export default {
           break
         } else if (scrollTop >= this.scrollInfo[len - 1]) {
           this.activeIndex = len
-        } else if(scrollTop < this.scrollInfo[0]) {
+        } else if (scrollTop < this.scrollInfo[0]) {
           this.activeIndex = 0
         }
       }
@@ -94,7 +92,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 // 导航
 .w-scroll-navs {
   position: fixed;
