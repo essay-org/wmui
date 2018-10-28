@@ -1,6 +1,8 @@
 <template>
   <transition :name="`wmui-popup-${position}`">
-    <div class="wmui-popup" ref="popup" v-show="value" :style="modeStyle"><slot></slot></div>
+    <div class="wmui-popup" ref="popup" v-show="value" :style="modeStyle">
+      <slot></slot>
+    </div>
   </transition>
 </template>
 <script>
@@ -18,11 +20,6 @@ export default {
       type: String,
       default: 'bottom'
     },
-    // 点击popup关闭
-    closeWhenClicked: {
-      type: Boolean,
-      default: false
-    },
     cover: {
       type: String,
       default: '100%'
@@ -32,7 +29,7 @@ export default {
     modeStyle () {
       let style = {
         position: 'fixed',
-        backgroundColor: '#FFF',
+        backgroundColor: '#fff',
         left: 0,
         top: 0,
         right: 0,
@@ -60,21 +57,10 @@ export default {
       return style
     }
   },
-  // 初始化popup状态
+  // 初始化mask状态
   mounted () {
     if (this.value) {
       this.open = true
-    }
-  },
-  methods: {
-    handleClick () {
-      if (this.closeWhenClicked) {
-        // 把v-model的值置为false
-        this.$emit('input', false)
-      }
-    },
-    popupClick (e) {
-      this.$emit('popupClick', e)
     }
   }
 }

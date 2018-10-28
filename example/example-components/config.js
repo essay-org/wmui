@@ -5,7 +5,9 @@ let compontens = [
   'radio-demo',
   'checkbox-demo',
   'switch-demo',
-  'grid-demo'
+  'grid-demo',
+  'select-demo',
+  'popup-demo'
 ]
 
 export default compontens

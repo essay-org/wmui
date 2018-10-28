@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'WmuiMask',
+  name: 'wmui-mask',
   props: {
     show: {
       type: Boolean,
@@ -19,14 +19,10 @@ export default {
       type: Number,
       default: 0.4
     },
-    color: {
-      type: String,
-      default: '#000'
-    },
-    zIndex: {
+    zIndex: { // mask层级
       type: Number
     },
-    onClick: {
+    onClick: { // 点击mask
       type: Function
     }
   },
@@ -41,7 +37,6 @@ export default {
     maskStyle () {
       return {
         'opacity': this.opacity,
-        'background-color': this.color,
         'position': this.fixed ? 'fixed' : '',
         'z-index': this.zIndex
       }
@@ -51,11 +46,12 @@ export default {
 </script>
 <style lang="scss">
 .wmui-mask {
-  position: absolute;
+  position: absolute; // mask默认定位
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+  background-color: #000;
 }
 .wmui-mask-fade-enter-active,
 .wmui-mask-fade-leave-active {

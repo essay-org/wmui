@@ -3,6 +3,7 @@ import Badge from './badge/index.vue'
 import Switch from './switch/index.vue'
 import Checkbox from './checkbox/index.vue'
 import Radio from './radio/index.vue'
+import Select from './select/index.vue'
 import Popup from './popup/index.vue'
 import Tooltip from './tooltip/index.vue'
 import Swipe from './swipe/index.vue'
@@ -14,6 +15,7 @@ const components = [
   Badge,
   Checkbox,
   Radio,
+  Select,
   Switch,
   Popup,
   Tooltip,
@@ -40,6 +42,7 @@ export {
   Badge,
   Checkbox,
   Radio,
+  Select,
   Switch,
   Popup,
   Tooltip,

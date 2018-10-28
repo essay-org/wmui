@@ -1,3 +1,10 @@
+# Select
+
+## 用法
+
+Select 下拉选择框
+
+```html
 <template>
   <div class="demo">
     <div class="mb20">
@@ -14,7 +21,7 @@
       <p>禁用</p>
       <wmui-select :option="option" :disabled="true" />
     </div>
-
+    
     <div class="mb20">
       <p>指定列表项个数</p>
       <wmui-select :option="option" :showNum="5" @onChange="onChange2" />
@@ -53,3 +60,17 @@ export default {
 }
 
 </script>
+```
+
+## Props
+
+| 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |
+|------|-----|------|--------|-------| ---- |
+| v-model | 指定默认选中项 | String |
+| option | 下拉列表数据 | Array |
+| placeholder | 默认占位符 | String | 请选择 |
+| disabled  | 是否禁用 | Boolean | false | true |
+| showSearch | 是否显示搜索框 | Boolean | false | true | 适用于列表项较多的情况 |
+| searchPlaceholder | 搜索框默认占位符 | String | 请输入关键字 |
+| showNum | 指定列表项的数量，超出自动出现滚动条 | Number |
+| onChange | 选中列表项后的回调函数 | Function | | | 函数参数是一个包含选中项的对象|

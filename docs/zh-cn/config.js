@@ -27,5 +27,8 @@ export default {
   }, {
     en: 'switch',
     zh: '开关'
+  },{
+    en: 'select',
+    zh: '下拉框'
   }]
 }

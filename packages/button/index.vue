@@ -1,5 +1,5 @@
 <template>
-  <button :type="type" :disabled="disabled" :class="className" class="wmui-button">
+  <button :disabled="disabled" :class="className" class="wmui-button">
     <slot></slot>
   </button>
 </template>
@@ -7,15 +7,14 @@
 export default {
   name: 'wmui-button',
   props: {
-    type: {
-      type: String,
-      default: 'button'
-    },
     disabled: {
       type: Boolean,
       default: false
     },
-    className: String
+    className: {
+      type: String,
+      default: 'wmui-btn-default'
+    }
   }
 }
 </script>
@@ -25,9 +24,8 @@ export default {
   display: inline-block;
   border: none;
   text-align: center;
-  color: #fff;
-  background-color: $primary;
-  padding: 7px 15px;
+  line-height: 1;
+  padding: 9px 15px;
   border-radius: 3px;
   &:hover {
     opacity: 0.9;
@@ -35,6 +33,31 @@ export default {
   &:disabled {
     cursor: not-allowed;
     opacity: 0.7;
+  }
+  &.wmui-btn-default {
+   color: $black-light;
+   border: 1px solid $gray;
+   background-color: #fff;
+   &:disabled {
+     background-color: $gray-light;
+   }
+  }
+  &.wmui-btn-primary {
+   color: #fff;
+   border: 1px solid $primary;
+   background-color: $primary;
+  }
+
+  &.wmui-btn-red {
+   color: #fff;
+   border: 1px solid $red;
+   background-color: $red;
+  }
+
+  &.wmui-btn-yellow {
+   color: #fff;
+   border: 1px solid $yellow;
+   background-color: $yellow;
   }
 }
 </style>
