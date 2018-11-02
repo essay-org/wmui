@@ -10,7 +10,7 @@ import Tooltip from './tooltip/index.vue'
 import Swipe from './swipe/index.vue'
 import SwipeItem from './swipe/SwipeItem.vue'
 import Scrollspy from './scrollspy/index.vue'
-
+import Toast from './toast/index'
 const version = '0.0.1'
 const components = [
   Button,
@@ -32,6 +32,7 @@ const install = function (Vue) {
   components.forEach(component => {
     Vue.component(component.name, component)
   })
+  Vue.use(Toast)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

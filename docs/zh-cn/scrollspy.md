@@ -93,6 +93,6 @@ export default {
 | 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |
 |------|-----|------|--------|-------| ---- |
 | panelNavs | 导航菜单对应的每一项描述 | Array | |  | 必选 |
-| defaultNav  | 定义默认高亮项 | String |  | 为空时默认不显示 | 
+| defaultNav  | 定义默认高亮项 | String |  |  | 为空时默认不显示 | 
 | hasBackTop | 是否显示返回顶部 | Boolean | false| | |
-| .wmui-scrollspy-panel | 需要滚动的盒子对应的类名 | String || 必选|
+| .wmui-scrollspy-panel | 需要滚动的盒子对应的类名 | String | | | 必选|
