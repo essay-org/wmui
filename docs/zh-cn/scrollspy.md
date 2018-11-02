@@ -1,3 +1,10 @@
+# Scrollspy
+
+## 用法
+
+Scrollspy 滚动监听组件
+
+```html
 <template>
   <div class="demo">
     <header style="height: 300px; background-color: #333;color: #fff">I am header</header>
@@ -31,7 +38,7 @@ export default {
 }
 </script>
 <style lang="scss">
-// 导航
+
 .wmui-scrollspy-navs {
   position: fixed;
   bottom: 50px;
@@ -47,12 +54,11 @@ export default {
   }
 }
 
-// 高亮
 .wmui-scrollspy-active {
   background-color: gray !important;
 }
 
-// 自定义，不需要设置高度
+
 .one,
 .two,
 .three {
@@ -74,3 +80,19 @@ export default {
   background: red;
 }
 </style>
+```
+
+滚动菜单的样式可根据对应的类名自定义，由于样式是容易变动的，所以控制权交给开发者
+
+`.wmui-scrollspy-navs` 导航菜单的类名
+
+`.wmui-scrollspy-active` 导航菜单高亮时的类名
+
+## Props
+
+| 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |
+|------|-----|------|--------|-------| ---- |
+| panelNavs | 导航菜单对应的每一项描述 | Array | |  | 必选 |
+| defaultNav  | 定义默认高亮项 | String |  | 为空时默认不显示 | 
+| hasBackTop | 是否显示返回顶部 | Boolean | false| | |
+| .wmui-scrollspy-panel | 需要滚动的盒子对应的类名 | String || 必选|

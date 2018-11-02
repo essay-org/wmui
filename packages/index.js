@@ -9,6 +9,7 @@ import LazyLoad from './lazyload/index.vue'
 import Tooltip from './tooltip/index.vue'
 import Swipe from './swipe/index.vue'
 import SwipeItem from './swipe/SwipeItem.vue'
+import Scrollspy from './scrollspy/index.vue'
 
 const version = '0.0.1'
 const components = [
@@ -22,7 +23,8 @@ const components = [
   LazyLoad,
   Tooltip,
   Swipe,
-  SwipeItem
+  SwipeItem,
+  Scrollspy
 ]
 
 const install = function (Vue) {
@@ -50,7 +52,8 @@ export {
   LazyLoad,
   Tooltip,
   Swipe,
-  SwipeItem
+  SwipeItem,
+  Scrollspy
 }
 
 // 全部引入

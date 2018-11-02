@@ -36,5 +36,8 @@ export default {
   },{
     en: 'lazyload',
     zh: '懒加载'
+  },{
+    en: 'scrollspy',
+    zh: '滚动监听'
   }]
 }
