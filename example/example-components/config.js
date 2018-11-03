@@ -10,7 +10,8 @@ let compontens = [
   'popup-demo',
   'lazyload-demo',
   'scrollspy-demo',
-  'toast-demo'
+  'toast-demo',
+  'editor-demo'
 ]
 
 export default compontens

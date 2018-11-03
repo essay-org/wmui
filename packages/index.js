@@ -6,11 +6,13 @@ import Radio from './radio/index.vue'
 import Select from './select/index.vue'
 import Popup from './popup/index.vue'
 import LazyLoad from './lazyload/index.vue'
-import Tooltip from './tooltip/index.vue'
 import Swipe from './swipe/index.vue'
 import SwipeItem from './swipe/SwipeItem.vue'
 import Scrollspy from './scrollspy/index.vue'
 import Toast from './toast/index'
+import Edit from './editor/editor-edit.vue'
+import Preview from './editor/editor-preview.vue'
+
 const version = '0.0.1'
 const components = [
   Button,
@@ -21,10 +23,11 @@ const components = [
   Switch,
   Popup,
   LazyLoad,
-  Tooltip,
   Swipe,
   SwipeItem,
-  Scrollspy
+  Scrollspy,
+  Edit,
+  Preview
 ]
 
 const install = function (Vue) {
@@ -51,10 +54,11 @@ export {
   Switch,
   Popup,
   LazyLoad,
-  Tooltip,
   Swipe,
   SwipeItem,
-  Scrollspy
+  Scrollspy,
+  Edit,
+  Preview
 }
 
 // 全部引入

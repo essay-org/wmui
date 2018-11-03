@@ -1,10 +1,10 @@
 <template>
   <div class="demo">
-    <button @click="top">top</button>
-    <button @click="center">center</button>
-    <button @click="bottom">bottom</button>
-    <button @click="base">base</button>
-    <button @click="loading">loading</button>
+    <wmui-button @click.native="top">top</wmui-button>
+    <wmui-button @click.native="center">center</wmui-button>
+    <wmui-button @click.native="bottom">bottom</wmui-button>
+    <wmui-button @click.native="base">base</wmui-button>
+    <wmui-button @click.native="loading">loading</wmui-button>
   </div>
 </template>
 <script>
