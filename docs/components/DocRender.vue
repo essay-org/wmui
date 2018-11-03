@@ -1,5 +1,5 @@
 <template>
-  <div :class="`${componentName} markdown`" v-html="content"></div>
+  <div :class="`${componentName} markdown-body`" v-html="content"></div>
 </template>
 <script>
 import docs from '../zh-cn/config.js'
@@ -44,60 +44,5 @@ export default {
 </script>
 <style lang="scss">
 @import "~highlight.js/styles/github.css";
-.markdown {
-  h1 {
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: bold;
-    color: #222;
-  }
-
-  h2 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 24px;
-    color: #222;
-    font-weight: bold;
-  }
-
-  p {
-    margin-top: 10px;
-    color: #737373;
-    & + p {
-      margin-top: 5px;
-    }
-  }
-
-  ul,
-  ol {
-    margin-top: 10px;
-  }
-
-  li {
-    a {
-      color: #737373;
-    }
-  }
-  pre,
-  code {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-family: sfmono-regular, Consolas, "liberation mono";
-  }
-  table {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    color: #656b78;
-    th,
-    td {
-      border: 1px solid #e8e8e8;
-      padding: 10px 12px;
-      text-align: left;
-    }
-  }
-}
+@import "../assets/styles/markdown-github.css";
 </style>

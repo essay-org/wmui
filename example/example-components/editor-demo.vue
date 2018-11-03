@@ -1,6 +1,11 @@
 <template>
   <div>
-    <wmui-edit v-model="content" :options="options" :zIndex="zIndex" :upload="uploadImg" @save="save"></wmui-edit>
+    <wmui-edit 
+    v-model="content" 
+    :options="options" 
+    :zIndex="999" 
+    :upload="uploadImg" 
+    @save="save"/>
   </div>
 </template>
 <script>
@@ -12,8 +17,7 @@ export default {
       content: ' ## hello ',
       options: {
         linkify: true,
-        highlight (str, lang) {
-          lang = lang || 'javascript'
+        highlight (str, lang = 'javascript') {
           if (hljs.getLanguage(lang)) {
             try {
               return hljs.highlight(lang, str).value
@@ -22,7 +26,6 @@ export default {
           return ''
         },
       },
-      zIndex: 999,
       uploadImg: {
         url: 'http://localhost:8080/v1/upload',
         headers: {
@@ -39,5 +42,6 @@ export default {
 }
 </script>
 <style>
+/* 代码高亮风格 */
 @import "~highlight.js/styles/github.css";
 </style>

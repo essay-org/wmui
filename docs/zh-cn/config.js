@@ -39,5 +39,11 @@ export default {
   },{
     en: 'scrollspy',
     zh: '滚动监听'
+  }, {
+    en: 'toast',
+    zh: '信息提示'
+  }, {
+    en: 'editor',
+    zh: 'markdown编辑器'
   }]
 }

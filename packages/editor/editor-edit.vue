@@ -63,7 +63,8 @@ export default {
   name: 'wmui-edit',
   props: {
     value: {
-      type: String
+      type: String,
+      default: ''
     },
     options: {
       type: Object
