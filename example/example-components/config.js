@@ -11,7 +11,8 @@ let compontens = [
   'lazyload-demo',
   'scrollspy-demo',
   'toast-demo',
-  'editor-demo'
+  'editor-demo',
+  'swiper-demo'
 ]
 
 export default compontens

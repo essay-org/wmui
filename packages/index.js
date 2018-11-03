@@ -6,8 +6,8 @@ import Radio from './radio/index.vue'
 import Select from './select/index.vue'
 import Popup from './popup/index.vue'
 import LazyLoad from './lazyload/index.vue'
-import Swipe from './swipe/index.vue'
-import SwipeItem from './swipe/SwipeItem.vue'
+import Swiper from './swiper/index.vue'
+import SwiperItem from './swiper/swiper-item.vue'
 import Scrollspy from './scrollspy/index.vue'
 import Toast from './toast/index'
 import Edit from './editor/editor-edit.vue'
@@ -23,8 +23,8 @@ const components = [
   Switch,
   Popup,
   LazyLoad,
-  Swipe,
-  SwipeItem,
+  Swiper,
+  SwiperItem,
   Scrollspy,
   Edit,
   Preview
@@ -54,8 +54,8 @@ export {
   Switch,
   Popup,
   LazyLoad,
-  Swipe,
-  SwipeItem,
+  Swiper,
+  SwiperItem,
   Scrollspy,
   Edit,
   Preview
