@@ -1,8 +1,6 @@
-'use strict'
 const webpack = require('webpack')
 const CleanPlugin = require('clean-webpack-plugin')
 const autoprefixer = require('autoprefixer')
-const px2rem = require('postcss-px2rem')
 const fs = require('fs')
 const path = require('path')
 
@@ -36,7 +34,7 @@ module.exports = {
         loaders: [{
           loader: 'vue-loader',
           options: {
-            postcss: [autoprefixer({browsers: ['> 1%', 'ie >= 9', 'iOS >= 6', 'Android >= 2.1']}), px2rem({remUnit: 75})]
+            postcss: [autoprefixer({browsers: ['> 1%', 'ie >= 10', 'iOS >= 8', 'Android >= 4']})]
           }
         }]
       },
