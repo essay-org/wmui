@@ -12,7 +12,8 @@ let compontens = [
   'scrollspy-demo',
   'toast-demo',
   'editor-demo',
-  'swiper-demo'
+  'swiper-demo',
+  'modal-demo'
 ]
 
 export default compontens

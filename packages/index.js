@@ -12,7 +12,7 @@ import Scrollspy from './scrollspy/index.vue'
 import Toast from './toast/index'
 import Edit from './editor/editor-edit.vue'
 import Preview from './editor/editor-preview.vue'
-
+import Modal from './modal/index.js'
 const version = '0.0.1'
 const components = [
   Button,
@@ -36,6 +36,7 @@ const install = function (Vue) {
     Vue.component(component.name, component)
   })
   Vue.use(Toast)
+  Vue.$Modal = Vue.prototype.$Modal = Modal
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

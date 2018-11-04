@@ -13,6 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../lib'),
     filename: '[name].js',
+    library: 'wmui',
     libraryTarget: 'umd'
   },
   externals: {
