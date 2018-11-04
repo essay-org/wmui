@@ -43,6 +43,9 @@ export default {
     en: 'toast',
     zh: '信息提示'
   }, {
+    en: 'loading',
+    zh: '加载状态'
+  }, {
     en: 'editor',
     zh: 'markdown编辑器'
   }, {

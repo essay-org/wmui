@@ -9,7 +9,8 @@ import LazyLoad from './lazyload/index.vue'
 import Swiper from './swiper/index.vue'
 import SwiperItem from './swiper/swiper-item.vue'
 import Scrollspy from './scrollspy/index.vue'
-import Toast from './toast/index'
+import Toast from './toast/index.js'
+import Loading from './loading/index.js'
 import Edit from './editor/editor-edit.vue'
 import Preview from './editor/editor-preview.vue'
 import Modal from './modal/index.js'
@@ -35,7 +36,8 @@ const install = function (Vue) {
   components.forEach(component => {
     Vue.component(component.name, component)
   })
-  Vue.use(Toast)
+  Vue.$Toast = Vue.prototype.$Toast = Toast
+  Vue.$Loading = Vue.prototype.$Loading = Loading
   Vue.$Modal = Vue.prototype.$Modal = Modal
 }
 

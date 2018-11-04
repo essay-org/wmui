@@ -11,6 +11,7 @@ let compontens = [
   'lazyload-demo',
   'scrollspy-demo',
   'toast-demo',
+  'loading-demo',
   'editor-demo',
   'swiper-demo',
   'modal-demo'

@@ -1,53 +1,39 @@
-.wmui-toast {
-  position: fixed;
-  bottom: 100px;
-  left: 50%;
-  box-sizing: border-box;
-  max-width: 80%;
-  height: 40px;
-  line-height: 20px;
-  padding: 10px 20px;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 9999;
-  font-size: 14px;
-  color: #fff;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.7);
-  animation: show-toast .5s;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.wmui-toast.wmui-word-wrap {
-  width: 80%;
-  white-space: inherit;
-  height: auto;
-}
-
-.wmui-toast.wmui-toast-top {
-  top: 50px;
-  bottom: inherit;
-}
-
-.wmui-toast.wmui-toast-center {
-  top: 50%;
-  margin-top: -20px;
-  bottom: inherit;
-}
-
-@keyframes show-toast {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
+<template>
+  <div v-show="show" class="wmui-load-mark">
+    <div class="wmui-load-box">
+      <div class="wmui-loading">
+        <div class="loading_leaf loading_leaf_0"></div>
+        <div class="loading_leaf loading_leaf_1"></div>
+        <div class="loading_leaf loading_leaf_2"></div>
+        <div class="loading_leaf loading_leaf_3"></div>
+        <div class="loading_leaf loading_leaf_4"></div>
+        <div class="loading_leaf loading_leaf_5"></div>
+        <div class="loading_leaf loading_leaf_6"></div>
+        <div class="loading_leaf loading_leaf_7"></div>
+        <div class="loading_leaf loading_leaf_8"></div>
+        <div class="loading_leaf loading_leaf_9"></div>
+        <div class="loading_leaf loading_leaf_10"></div>
+        <div class="loading_leaf loading_leaf_11"></div>
+      </div>
+      <div class="wmui-load-content">{{ text }}</div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  props: {
+    show: {
+      type: Boolean,
+      default: false
+    },
+    text: {
+      type: String,
+      default: '加载中...'
+    }
   }
 }
+</script>
+<style>
 
 .wmui-load-mark {
   position: fixed;
@@ -69,7 +55,7 @@
   background: rgba(0, 0, 0, 0.7);
   text-align: center;
   border-radius: 5px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .wmui-load-content {
@@ -460,3 +446,4 @@
     opacity: 0.895958333333333;
   }
 }
+</style>
