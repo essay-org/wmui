@@ -18,8 +18,8 @@ export default {
       this.$Modal.confirm({
         title: '测试标题',
         text: '测试文字',
-        confirmText: '是',
-        cancelText: '否',
+        confirmText: '确认删除',
+        cancelText: '关闭',
         onConfirm (instance) {
           console.log('确定！')
           instance.open = false
