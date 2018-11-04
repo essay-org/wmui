@@ -45,5 +45,8 @@ export default {
   }, {
     en: 'editor',
     zh: 'markdown编辑器'
+  }, {
+    en: 'swiper',
+    zh: '轮播图'
   }]
 }

@@ -1,3 +1,10 @@
+# Swiper
+
+Swiper 轮播图组件
+
+## 用法
+
+```html
 <template>
   <div class="demo">
     <wmui-swiper :duration="3000" :arrow="false">
@@ -30,3 +37,11 @@ export default {
   }
 }
 </script>
+```
+
+## Props
+
+| 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |
+|------|-----|------|--------|-------| ---- |
+| duration | 轮播间隔时间（毫秒） | Number | 3000 | 
+| arrow | 是否显示箭头| Boolean | false |
