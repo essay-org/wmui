@@ -3,10 +3,7 @@
     <nav>
         <ul>
           <li>
-            <router-link to="/docs/start">文档</router-link>
-          </li>
-          <li>
-            <router-link to="/example">示例</router-link>
+            <router-link to="/">查看文档</router-link>
           </li>
         </ul>
       </nav>
@@ -23,7 +20,7 @@ export default {
   margin: auto;
   text-align: center;
   nav {
-    margin-top: 50px;
+    margin-top: 200px;
   }
   li {
     display: inline-block;
