@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer')
 module.exports = {
   entry: path.resolve(__dirname, '../docs/main.js'),
   output: {
-    path: path.resolve(__dirname, '../template/website'),
+    path: path.resolve(__dirname, '../template'),
     filename: 'website.js'
   },
   resolve: {
