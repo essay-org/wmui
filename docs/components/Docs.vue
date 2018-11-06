@@ -13,6 +13,8 @@
     <div class="content">
       <div class="doc">
         <doc-render :componentName="componentName"></doc-render>
+        <a :href="`${domain}/example/${this.componentName}-demo`" target="_blank" class="demo-link">点击查看示例</a>
+        <!-- <iframe :src="`${domain}/example/${this.componentName}-demo`" width="100%" height="100%" ref="iframe" frameborder="0"></iframe> -->
       </div>
     </div>
   </div>
@@ -28,7 +30,13 @@ export default {
     menuTitle:[],
     isPhoneShow: true,
     active: this.$route.params.componentName || 'start',
-    componentName: this.$route.params.componentName || 'start'
+    componentName: this.$route.params.componentName || 'start',
+    domain: 'http://127.0.0.1:8083/#'
+    }
+  },
+  created() {
+    if(process.env.NODE_ENV === 'production') {
+      this.domain = 'https://wmui.github.io/wmui/#'
     }
   },
   mounted() {
@@ -94,25 +102,10 @@ export default {
       flex:1;
       padding: 10px 15px;
     }
-    .phone {
-      width: 375px;
-      height: 714px;
-      background-image: url('../assets/images/iphone.png');
-      background-repeat: no-repeat;
-      background-size: 375px 714px;
-      position: relative;
-      margin:10px;
-      iframe {
-        position: absolute;
-        border: 0;
-        top: 88px;
-        left: 25px;
-        width: 325px;
-        height: 540px;
-        background-color: #F7F7F7;
-        overflow: scroll;
-      }
-    }
+  }
+  .demo-link {
+    display: inline-block;
+    margin: 30px 0 100px;
   }
 }
 </style>

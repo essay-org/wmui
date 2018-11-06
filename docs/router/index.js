@@ -5,7 +5,7 @@ import Docs from '../components/Docs.vue'
 
 Vue.use(Router)
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   linkActiveClass: 'current',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
