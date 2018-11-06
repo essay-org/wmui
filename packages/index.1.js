@@ -14,7 +14,7 @@ import Loading from './loading/index.js'
 import Edit from './editor/editor-edit.vue'
 import Preview from './editor/editor-preview.vue'
 import Modal from './modal/index.js'
-const version = '0.0.3'
+const version = '0.0.2'
 const components = [
   Button,
   Badge,

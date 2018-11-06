@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer')
 module.exports = {
   entry: path.resolve(__dirname, '../docs/main.js'),
   output: {
-    path: path.resolve(__dirname, '../template/website'),
+    path: path.resolve(__dirname, '../template'),
     filename: 'website.js'
   },
   resolve: {
@@ -28,7 +28,7 @@ module.exports = {
           loader: 'vue-loader',
           options: {
             postcss: {
-              plugins: [autoprefixer({browsers: ['> 1%', 'ie >= 9', 'iOS >= 6', 'Android >= 2.1']})]
+              plugins: [autoprefixer({browsers: ['> 1%', 'ie >= 10', 'iOS >= 8', 'Android >= 4']})]
             }
           }
         }]

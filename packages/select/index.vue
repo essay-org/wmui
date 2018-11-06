@@ -22,6 +22,7 @@
   </div>
 </template>
 <script>
+import { isServer } from '../_utils/util.js'
 export default {
   name: 'wmui-select',
   data () {
@@ -61,6 +62,7 @@ export default {
   },
   components: {},
   mounted () {
+    if (isServer) return false
     this.setFirstText()
     document.addEventListener('click', this.showHide)
   },

@@ -73,7 +73,6 @@ module.exports = {
     new HtmlwebpackPlugin({
       template: path.resolve(__dirname, '../docs/index.html'),
       filename: 'index.html',
-      chunks: ['website'],
       inject: 'body'
     }),
     new webpack.HotModuleReplacementPlugin()

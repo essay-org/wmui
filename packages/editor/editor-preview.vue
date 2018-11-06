@@ -2,7 +2,7 @@
   <div class="wmui-preview markdown-body" v-html="html"></div>
 </template>
 <script>
-import markdownIt from 'markdown-it'
+import { isServer } from '../_utils/util.js'
 export default {
   name: 'wmui-preview',
   props: ['content', 'options'],
@@ -27,16 +27,18 @@ export default {
   methods: {
     // 初始化配置文件
     initMarkdown () {
+      if (isServer) return false
       // 可在这里配置默认项
       let options = {
         html: true,
         breaks: true,
         ...this.options
       }
-      this.markdownit = markdownIt(options)
+      this.markdownit = require('markdown-it')(options)
       this.renderIt()
     },
     renderIt () {
+      if (isServer) return false
       this.html = this.markdownit.render(this.content)
       this.$nextTick(() => {
         if (this.$el.querySelectorAll('a')) {
@@ -47,7 +49,7 @@ export default {
       })
     }
   },
-  created () {
+  mounted () {
     this.initMarkdown()
   }
 }

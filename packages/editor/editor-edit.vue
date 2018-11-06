@@ -47,6 +47,7 @@
 </template>
 <script>
 import EditorPreview from './editor-preview.vue'
+import {isServer} from '../_utils/util.js'
 // 选中内容的位置
 function getEditorSelection (editor) {
   return {
@@ -120,6 +121,7 @@ export default {
       if (this.content !== value) this.content = value
     },
     content () {
+      if (isServer) return false
       this.$emit('input', this.content)
       this.scrollReset()
       if (this.content === this.history[this.currentIndex]) return
@@ -152,6 +154,7 @@ export default {
   },
   methods: {
     pasteEvent (event) {
+      if (isServer) return false
       var items = (event.clipboardData || event.originalEvent.clipboardData).items
       for (let index in items) {
         let item = items[index]
@@ -263,6 +266,7 @@ export default {
     },
 
     _status (type, text, time = text.length / 10 * 1000) {
+      if (isServer) return false
       window.clearTimeout(this.statusMessage.timeout)
       let timeout = setTimeout(() => {
         this.statusMessage.show = false
@@ -286,6 +290,7 @@ export default {
       this.$refs.upload.click()
     },
     fileUpload () {
+      if (isServer) return false
       let input = this.$refs.upload
       let upload = this.$emit('custom-upload', input)
       if (upload === false) return
@@ -294,6 +299,7 @@ export default {
       this.uploadFormData(fileData)
     },
     uploadFormData (formData) {
+      if (isServer) return false
       if (!this.uploadOpt.url) {
         this.error('请先配置上传路径')
         return false

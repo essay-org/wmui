@@ -24,12 +24,14 @@
   </div>
 </template>
 <script>
+import {isServer} from '../_utils/util.js'
 /**
  * obj 执行动画的dom元素
  * json 要运动的属性和值 如{left: 200}
  * fn 动画完成后的回掉
  */
 function animate (obj, json, fn) {
+  if (isServer) return false
   clearInterval(obj.timer)
   obj.timer = setInterval(function () {
     let flag = true
@@ -78,6 +80,7 @@ function animate (obj, json, fn) {
  * 获取dom元素的属性值
  */
 function getStyle (obj, attr) {
+  if (isServer) return false
   if (obj.currentStyle) {
     return obj.currentStyle[attr]
   } else {

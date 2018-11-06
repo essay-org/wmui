@@ -21,7 +21,7 @@
 </template>
 <script>
 import animation from '../_utils/animation'
-import { offset } from '../_utils/util'
+import { offset, isServer } from '../_utils/util'
 export default {
   name: 'wmui-scrollspy',
   props: {
@@ -45,6 +45,7 @@ export default {
     }
   },
   mounted () {
+    if (isServer) return false
     // 初始化每个wmui-scroll-panel盒子的高度
     const els = document.querySelectorAll('.wmui-scrollspy-panel')
     const len = els.length
@@ -57,6 +58,7 @@ export default {
   },
   methods: {
     go (index) {
+      if (isServer) return false
       let end = this.scrollInfo[index - 1]
       let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
       if (index === 0) {
@@ -67,12 +69,14 @@ export default {
       })
     },
     backTop () {
+      if (isServer) return false
       let doc = document.body.scrollTop || document.documentElement.scrollTop
       animation(doc, 0, 300, 'Linear', function (value) {
         document.body.scrollTop = document.documentElement.scrollTop = value
       })
     },
     scrollActive () {
+      if (isServer) return false
       let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
       let len = this.scrollInfo.length
       for (let index = 0; index < len; index++) {

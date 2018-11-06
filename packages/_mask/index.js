@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import MaskComponent from './Mask.vue'
+import {isServer} from '../_utils/util.js'
 const Mask = Vue.extend(MaskComponent)
 const maskManager = {
   instances: [],
   mask: null,
   open (instance) {
+    if (isServer) return {}
     // 实例不存在
     if (instance && this.instances.indexOf(instance) === -1) {
       let mask = this.mask = new Mask({
