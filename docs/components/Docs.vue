@@ -36,7 +36,7 @@ export default {
   },
   created() {
     if(process.env.NODE_ENV === 'production') {
-      this.domain = 'https://wmui.github.io/wmui/#'
+      this.domain = 'https://wmui.github.io/wmui/example.html#'
     }
   },
   mounted() {

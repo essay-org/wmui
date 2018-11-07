@@ -3,7 +3,7 @@
     <nav>
         <ul>
           <li>
-            <router-link to="/docs/intro">查看文档</router-link>
+            <router-link to="/docs/start">查看文档</router-link>
           </li>
         </ul>
       </nav>
