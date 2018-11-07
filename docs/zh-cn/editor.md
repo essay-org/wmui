@@ -1,6 +1,4 @@
-# Editor
-
-## 用法
+## Editor
 
 ### 编辑器
 
@@ -89,7 +87,7 @@ export default {
 
 `wmui-preview`组件用于渲染markdown内容
 
-## 配置项
+### 配置项
 
 | 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |
 |------|-----|------|--------|-------| ---- |
@@ -102,7 +100,7 @@ export default {
 | save | 当按下ctrl+s时执行的函数 | Function | | | 可在函数里执行数据的提交 | 
 
 
-### upload配置项
+#### upload配置项
 
 ```javascript
 {

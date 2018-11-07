@@ -1,6 +1,6 @@
-# Scrollspy
+## Scrollspy
 
-## 用法
+### 用法
 
 Scrollspy 滚动监听组件
 
@@ -88,7 +88,7 @@ export default {
 
 `.wmui-scrollspy-active` 导航菜单高亮时的类名
 
-## Props
+### Props
 
 | 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |
 |------|-----|------|--------|-------| ---- |

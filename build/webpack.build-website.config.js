@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer')
 module.exports = {
   entry: path.resolve(__dirname, '../docs/main.js'),
   output: {
-    path: path.resolve(__dirname, '../template'),
+    path: path.resolve(__dirname, '../template/website'),
     filename: 'website.js'
   },
   resolve: {
@@ -57,7 +57,7 @@ module.exports = {
     }),
     new HtmlwebpackPlugin({
       template: path.resolve(__dirname, '../docs/index.html'),
-      filename: 'index.html',
+      filename: '../index.html',
       inject: 'body'
     }),
     new webpack.optimize.UglifyJsPlugin({

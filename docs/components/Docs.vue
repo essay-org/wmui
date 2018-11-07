@@ -13,7 +13,7 @@
     <div class="content">
       <div class="doc">
         <doc-render :componentName="componentName"></doc-render>
-        <a :href="`${domain}/example/${this.componentName}-demo`" target="_blank" class="demo-link">点击查看示例</a>
+        <a :href="`${domain}/example/${componentName}-demo`" target="_blank" class="demo-link" v-if="componentName !== 'start'">点击查看示例</a>
         <!-- <iframe :src="`${domain}/example/${this.componentName}-demo`" width="100%" height="100%" ref="iframe" frameborder="0"></iframe> -->
       </div>
     </div>

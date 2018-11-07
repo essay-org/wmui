@@ -1,16 +1,10 @@
 export default {
   Intro: [{
-    en: 'intro',
-    zh: '说明'
-  }, {
     en: 'start',
     zh: '开始'
   },{
     en: 'iconfont',
     zh: '字体图标'
-  }, {
-    en: 'grid',
-    zh: '布局'
   }],
   Components: [{
     en: 'button',
@@ -33,7 +27,10 @@ export default {
   }, {
     en: 'popup',
     zh: '弹出层'
-  },{
+  }, {
+    en: 'grid',
+    zh: '布局'
+  }, {
     en: 'lazyload',
     zh: '懒加载'
   },{
@@ -47,7 +44,7 @@ export default {
     zh: '加载状态'
   }, {
     en: 'editor',
-    zh: 'markdown编辑器'
+    zh: '编辑器'
   }, {
     en: 'swiper',
     zh: '轮播图'

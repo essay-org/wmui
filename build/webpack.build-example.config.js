@@ -55,7 +55,7 @@ module.exports = {
     }),
     new HtmlwebpackPlugin({
       template: path.resolve(__dirname, '../example/index.html'),
-      filename: 'index.html',
+      filename: '../example.html',
       inject: 'body'
     }),
     new webpack.optimize.UglifyJsPlugin({

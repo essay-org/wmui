@@ -1,6 +1,6 @@
-# Switch
+## Switch
 
-## 用法
+### 用法
 
 Switch 开关组件
 
@@ -34,7 +34,7 @@ export default {
 </script>
 ```
 
-## Props
+### Props
 
 
 | 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |

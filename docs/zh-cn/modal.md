@@ -1,8 +1,8 @@
-# Modal
+## Modal
 
-模态框插件
+### 用法
 
-## 用法
+Modal 模态框插件
 
 ```html
 <template>
@@ -57,7 +57,7 @@ export default {
 
 `$Modal`是定义在`Vue.prototype`上的全局方法，有`alert、confirm、prompt`三个方法可以调用，效果等同于浏览器原生的alert框、confirm框、prompt框
 
-## 配置项
+### 配置项
 
 | 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |
 |------|-----|------|--------|-------| ---- |
