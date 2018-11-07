@@ -23,7 +23,7 @@
     "dev:example": "webpack-dev-server --progress --inline --config build/webpack.dev-example.config.js --host 0.0.0.0",
     "dev:website": "webpack-dev-server --progress --inline --config build/webpack.dev-website.config.js --host 0.0.0.0",
     "lint": "eslint --fix --ext .js,.vue packages",
-    "deploy:gh-pages": "npm run clean && npm run build:gh-pages && git checkout gh-pages && cp -r template/* . && git add . && git commit -m '[chore] Auto-deploy update demopage' --no-verify && git push",
+    "deploy:gh-pages": "npm run build:gh-pages && git checkout gh-pages && cp -r template/* . && git add . && git commit -m '[chore] Auto-deploy update demopage' --no-verify && git push",
     "clean": "rimraf coverage && rimraf lib && rimraf template"
   },
   "author": "wmui",
