@@ -64,6 +64,10 @@ const getZIndex = () => {
 // mixins 混合，可暴露到最外层组件
 export default {
   props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
     mask: { // 是否显示mask
       type: Boolean,
       default: true
@@ -79,9 +83,9 @@ export default {
   },
   data() {
     return {
-      zIndex: getZIndex(), // popup层级
-      open: false, // mask默认状态
-      maskZIndex: getZIndex() // mask层级
+      open: this.value, // mask默认状态
+      maskZIndex: getZIndex(), // mask层级
+      zIndex: getZIndex() // popup、modal、dialog层级
     }
   },
   methods: {

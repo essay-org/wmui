@@ -15,8 +15,9 @@ import Edit from './editor/editor-edit.vue'
 import Preview from './editor/editor-preview.vue'
 import Modal from './modal/index.js'
 import Pagination from './pagination/index.vue'
+import Dialog from './dialog/index.vue'
 
-const version = '0.0.4'
+const version = '0.0.5'
 const components = [
   Button,
   Badge,
@@ -31,7 +32,8 @@ const components = [
   Scrollspy,
   Edit,
   Preview,
-  Pagination
+  Pagination,
+  Dialog,
 ]
 
 const install = function (Vue) {
@@ -65,7 +67,8 @@ export {
   Scrollspy,
   Edit,
   Preview,
-  Pagination
+  Pagination,
+  Dialog,
 }
 
 // 全部引入

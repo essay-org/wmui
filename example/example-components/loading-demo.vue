@@ -8,9 +8,9 @@ export default {
   methods: {
     loading () {
       this.$Loading.start('加载中...');
-      setTimeout(() => {
-        this.$Loading.end()
-      }, 3000)
+      // setTimeout(() => {
+      //   this.$Loading.end()
+      // }, 3000)
     }
   }
 }

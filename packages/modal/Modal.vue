@@ -81,13 +81,13 @@ export default {
       default: () => { return true }
     }
   },
-  data () {
+  data() {
     return {
       inputValue: ''
     }
   },
   computed: {
-    isConfirmDisabled () {
+    isConfirmDisabled() {
       if (this.type === 'prompt') {
         return !this.validate(this.inputValue)
       } else {
@@ -96,10 +96,10 @@ export default {
     }
   },
   methods: {
-    maskClick () {
+    maskClick() {
       this.onMaskClick()
     },
-    confirmHandler () {
+    confirmHandler() {
       if (!this.isConfirmDisabled) {
         this.onConfirm()
       }

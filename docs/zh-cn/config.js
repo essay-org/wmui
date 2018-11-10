@@ -28,6 +28,12 @@ export default {
     en: 'popup',
     zh: '弹出层'
   }, {
+    en: 'modal',
+    zh: '模态框'
+  }, {
+    en: 'dialog',
+    zh: '对话框'
+  }, {
     en: 'grid',
     zh: '布局'
   }, {

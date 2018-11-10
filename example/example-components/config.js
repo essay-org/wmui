@@ -15,7 +15,8 @@ let compontens = [
   'editor-demo',
   'swiper-demo',
   'modal-demo',
-  'pagination-demo'
+  'pagination-demo',
+  'dialog-demo',
 ]
 
 export default compontens

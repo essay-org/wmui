@@ -1,6 +1,6 @@
 <template>
   <transition :name="`wmui-popup-${position}`">
-    <div class="wmui-popup" ref="popup" v-show="value" :style="modeStyle">
+    <div class="wmui-popup" v-show="open" :style="modeStyle">
       <slot></slot>
     </div>
   </transition>
@@ -11,11 +11,6 @@ export default {
   name: 'wmui-popup',
   mixins: [mask],
   props: {
-    // popup的状态值
-    value: {
-      type: Boolean,
-      default: false
-    },
     position: {
       type: String,
       default: 'bottom'
@@ -34,7 +29,7 @@ export default {
         top: 0,
         right: 0,
         bottom: 0,
-        zIndex: this.zIndex
+        zIndex: this.zIndex // mask mixin
       }
       switch (this.position) {
         case 'bottom':
@@ -55,12 +50,6 @@ export default {
           break
       }
       return style
-    }
-  },
-  // 初始化mask状态
-  mounted () {
-    if (this.value) {
-      this.open = true
     }
   }
 }
