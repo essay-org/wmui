@@ -14,6 +14,8 @@ import Loading from './loading/index.js'
 import Edit from './editor/editor-edit.vue'
 import Preview from './editor/editor-preview.vue'
 import Modal from './modal/index.js'
+import Pagination from './pagination/index.vue'
+
 const version = '0.0.4'
 const components = [
   Button,
@@ -28,7 +30,8 @@ const components = [
   SwiperItem,
   Scrollspy,
   Edit,
-  Preview
+  Preview,
+  Pagination
 ]
 
 const install = function (Vue) {
@@ -61,7 +64,8 @@ export {
   SwiperItem,
   Scrollspy,
   Edit,
-  Preview
+  Preview,
+  Pagination
 }
 
 // 全部引入

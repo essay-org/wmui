@@ -1,5 +1,4 @@
 const autoprefixer = require('autoprefixer')
-const px2rem = require('postcss-px2rem')
 const webpack = require('webpack')
 const path = require('path')
 // Karma configuration
@@ -145,7 +144,7 @@ module.exports = function (config) {
             loaders: [{
               loader: 'vue-loader',
               options: {
-                postcss: [autoprefixer({browsers: ['> 1%', 'ie >= 9', 'iOS >= 6', 'Android >= 2.1']}), px2rem({remUnit: 75})],
+                postcss: [autoprefixer({browsers: ['> 1%', 'ie >= 10', 'iOS >= 8', 'Android >= 4']})],
                 preLoaders: {
                   js: 'istanbul-instrumenter-loader?esModules=true'
                 }
@@ -158,7 +157,7 @@ module.exports = function (config) {
             loaders: [{
               loader: 'vue-loader',
               options: {
-                postcss: [autoprefixer({browsers: ['> 1%', 'ie >= 9', 'iOS >= 6', 'Android >= 2.1']}), px2rem({remUnit: 75})]
+                postcss: [autoprefixer({browsers: ['> 1%', 'ie >= 10', 'iOS >= 8', 'Android >= 4']})]
               }
             }]
           },

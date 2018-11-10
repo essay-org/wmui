@@ -48,5 +48,8 @@ export default {
   }, {
     en: 'swiper',
     zh: '轮播图'
+  }, {
+    en: 'pagination',
+    zh: '分页'
   }]
 }

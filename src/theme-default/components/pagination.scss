@@ -1,0 +1,37 @@
+@import "../base/var.scss";
+
+.wmui-pagination {
+  ul {
+    position: relative;
+    text-align: center;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  li a {
+    border-radius: 3px;
+    padding: 4px 10px;
+    display: inline-block;
+    border: 1px solid $gray-light;
+    background: #fff;
+    color: $black-light;
+    font-size: 14px;
+  }
+
+  li:hover a {
+    background: $gray-light
+  }
+
+  li.active:hover a {
+    background: #fff;
+  }
+
+  li.active a {
+    color: $primary;
+    border: 1px solid $primary;
+  }
+}

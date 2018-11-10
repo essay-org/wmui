@@ -66,6 +66,27 @@ new Vue({
 
 各个组件的使用方法请参阅其说明文档。
 
+### 在Nuxt.js中使用
+
+首先在 plugins 目录下新建 wmui.js，内容如下
+
+```js
+import Vue from 'vue'
+import wmui from 'wmui'
+import 'wmui/lib/styles/theme-default/index.css'
+Vue.use(wmui)
+```
+
+然后在 nuxt.config.js 中添加插件
+
+```js
+plugins: [
+  {src: '~plugins/wmui', ssr: true}
+],
+```
+
+完成上面两步后，就可以在项目中使用 WMUI 的所有组件了
+
 ### 参考项目
 
 WMUI的开发参考了以下开源项目：
