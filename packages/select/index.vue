@@ -7,7 +7,7 @@
       <i class="wmui icon-select"></i>
     </div>
     <!-- 下拉列表 -->
-    <transition name="select-drop">
+    <transition name="wmui-animation-drop">
       <div class="select-lists" v-show="show" :style="showLiNum">
         <!-- 搜索框 -->
         <div class="lists-search" v-if="showSearch" @click="searchBoxClick">

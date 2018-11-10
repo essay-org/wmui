@@ -38,7 +38,7 @@
           :content="content" 
           :options="options"></editor-preview>
         </div>
-        <transition enter-active-class="fade in" leave-active-class="fade out">
+        <transition name="wmui-animation-fade">
           <div class="upload-status" :class="statusMessage.type" v-show="statusMessage.show">{{statusMessage.text}}</div>
         </transition>
       </div>

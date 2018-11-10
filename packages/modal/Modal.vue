@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" @after-enter="onShow" @after-leave="onHide">
+  <transition name="wmui-animation-fade" @after-enter="onShow" @after-leave="onHide">
     <div class="wmui-modal" v-if="open" :style="{'z-index': zIndex}">
       <div class="wmui-modal-content">
         <header v-if="title">{{ title }}</header>

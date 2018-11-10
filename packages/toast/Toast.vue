@@ -1,5 +1,7 @@
 <template>
+<transition name="wmui-animation-fade">
   <div v-show="show" :class="`wmui-toast-${position}`" class="wmui-toast">{{text}}</div>
+</transition>
 </template>
 <script>
 export default {

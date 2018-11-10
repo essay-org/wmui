@@ -6,13 +6,3 @@
   bottom: 0;
   background-color: #000;
 }
-
-.wmui-mask-fade-enter-active,
-.wmui-mask-fade-leave-active {
-  transition: opacity 0.45s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.wmui-mask-fade-enter,
-.wmui-mask-fade-leave-to {
-  opacity: 0 !important;
-}

@@ -1,5 +1,5 @@
 <template>
-  <transition name="wmui-mask-fade">
+  <transition name="wmui-animation-fade">
     <div class="wmui-mask" v-if="show" @click="handleClick" :style="maskStyle"></div>
   </transition>
 </template>

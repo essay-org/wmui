@@ -1,0 +1,75 @@
+.wmui-animation-fade-enter-active,
+.wmui-animation-fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.wmui-animation-fade-enter,
+.wmui-animation-fade-leave-active {
+  opacity: 0;
+}
+
+.wmui-animation-bottom-enter-active,
+.wmui-animation-bottom-leave-active,
+.wmui-animation-top-enter-active,
+.wmui-animation-top-leave-active,
+.wmui-animation-left-enter-active,
+.wmui-animation-left-leave-active,
+.wmui-animation-right-enter-active,
+.wmui-animation-right-leave-active {
+  transition: all .3s ease-out;
+}
+
+.wmui-animation-bottom-enter,
+.wmui-animation-bottom-leave-to {
+  transform: translate3d(0, 100%, 0);
+}
+
+.wmui-animation-top-enter,
+.wmui-animation-top-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+
+.wmui-animation-left-enter,
+.wmui-animation-left-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.wmui-animation-right-enter,
+.wmui-animation-right-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+
+.wmui-animation-drop-enter-active {
+  animation: dropDown 0.3s;
+  transform-origin: center top;
+}
+
+.wmui-animation-drop-leave-active {
+  transform-origin: center top;
+  animation: dropUp 0.3s;
+  z-index: 99;
+}
+
+@keyframes dropDown {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes dropUp {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}

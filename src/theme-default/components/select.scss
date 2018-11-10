@@ -93,37 +93,3 @@ $select-height: 30px !default;
   }
 }
 
-.select-drop-enter-active {
-  animation: selectDropDown 0.3s;
-  transform-origin: center top;
-}
-
-.select-drop-leave-active {
-  transform-origin: center top;
-  animation: selectDropUp 0.3s;
-  z-index: 99;
-}
-
-@keyframes selectDropDown {
-  0% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
-
-@keyframes selectDropUp {
-  0% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-}

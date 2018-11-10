@@ -1,5 +1,5 @@
 <template>
-  <transition :name="`wmui-popup-${position}`">
+  <transition :name="`wmui-animation-${position}`">
     <div class="wmui-popup" v-show="open" :style="modeStyle">
       <slot></slot>
     </div>
