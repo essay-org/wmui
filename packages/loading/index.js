@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import LoadingCompontent from './Loading.vue'
+import {
+  isServer
+} from '../_utils/util.js'
 const LoadingConstructor = Vue.extend(LoadingCompontent)
 
 let LoadingInstance = null
 let showLoading = false
 const Loading = {
-  start (text) {
-    if (showLoading) return
+  start(text) {
+    if (isServer) return false
+    if (showLoading) return false
     if (!LoadingInstance) {
       LoadingInstance = new LoadingConstructor()
         .$mount(document.createElement('div'))
@@ -15,7 +19,7 @@ const Loading = {
     LoadingInstance.text = text
     LoadingInstance.show = showLoading = true
   },
-  end () {
+  end() {
     LoadingInstance.show = showLoading = false
   }
 }

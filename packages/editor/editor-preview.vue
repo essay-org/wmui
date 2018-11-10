@@ -3,59 +3,70 @@
 </template>
 <script>
 import markdownIt from 'markdown-it'
+import { isServer } from '../_utils/util.js'
+
 export default {
   name: 'wmui-preview',
-  props: ['content', 'options'],
-  data () {
+  props: {
+    content: {
+      type: String,
+      default: ''
+    },
+    options: {
+      type: Object,
+      default: () => { }
+    }
+  },
+  data() {
     return {
       html: ''
     }
   },
   watch: {
-    content () {
+    content() {
       this.renderIt()
-    },
-
-    // 配置文件变化后重新初始化
-    options: {
-      deep: true,
-      handler () {
-        this.initMarkdown()
-      }
     }
   },
   methods: {
-    // 初始化配置文件
-    initMarkdown () {
-      // 可在这里配置默认项
-      let options = {
-        html: true,
-        breaks: true,
-        ...this.options
-      }
-      this.markdownit = markdownIt(options)
-      this.renderIt()
-    },
-    renderIt () {
+    renderIt() {
       this.html = this.markdownit.render(this.content)
-      this.$nextTick(() => {
-        if (this.$el.querySelectorAll('a')) {
-          this.$el.querySelectorAll('a').forEach((a) => {
-            a.setAttribute('target', '_blank')
-          })
-        }
-      })
+      if(!isServer) {    
+        this.$nextTick(() => {
+          if (this.$el.querySelectorAll('a')) {
+            this.$el.querySelectorAll('a').forEach((a) => {
+              a.setAttribute('target', '_blank')
+            })
+          }
+        })
+      }
     }
   },
-  created () {
-    this.initMarkdown()
+  created() {
+    const hljs = require('highlight.js/lib/highlight.js')
+    const hl_html = require('highlight.js/lib/languages/xml.js')
+    const hl_css = require('highlight.js/lib/languages/css.js')
+    const hl_javascript = require('highlight.js/lib/languages/javascript.js')
+    const hl_json = require('highlight.js/lib/languages/json.js')
+    const hl_bash = require('highlight.js/lib/languages/bash.js')
+    hljs.registerLanguage('html', hl_html)
+    hljs.registerLanguage('css', hl_css)
+    hljs.registerLanguage('javascript', hl_javascript)
+    hljs.registerLanguage('json', hl_json)
+    hljs.registerLanguage('bash', hl_bash)
+    let options = {
+      html: true,
+      breaks: true,
+      linkify: true,
+      highlight(str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          return hljs.highlight(lang, str).value
+        }
+        return ''
+      },
+      ...this.options
+    }
+    this.markdownit = markdownIt(options)
+    this.renderIt()
   }
 }
 </script>
-<style>
-@import "./github-markdown.css";
-.wmui-preview {
-  flex: 1;
-  padding: 15px;
-}
-</style>

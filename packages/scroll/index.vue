@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+import {isServer} from '../_utils/util.js'
 export default {
   name: 'wmui-scroll',
   props: {
@@ -20,6 +21,7 @@ export default {
   directives: {
     scroll: {
       bind (el, binding) {
+        if(isServer) return false
         window.addEventListener('scroll', function () {
           // 这里无法访问到this,所以通过外部的onLoad函数来判断是否在loading中
           let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
@@ -52,13 +54,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.wmui-loading {
-  margin: 30px;
-}
-.wmui-no-data {
-  margin: 30px;
-  text-align: center;
-  color: $gray-light;
-}
-</style>

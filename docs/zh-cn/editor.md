@@ -5,32 +5,14 @@
 ```html
 <template>
   <div>
-    <wmui-edit 
-    v-model="content" 
-    :options="options" 
-    :zIndex="999" 
-    :upload="uploadImg" 
-    @save="save"/>
+    <wmui-edit v-model="content" :upload="uploadImg" @save="save" />
   </div>
 </template>
 <script>
-// 代码高亮
-import hljs from 'highlight.js'
 export default {
-  data () {
+  data() {
     return {
-      content: ' ## hello ',
-      options: {
-        linkify: true,
-        highlight (str, lang = 'javascript') {
-          if (hljs.getLanguage(lang)) {
-            try {
-              return hljs.highlight(lang, str).value
-            } catch (__) { }
-          }
-          return ''
-        },
-      },
+      content: '## hello',
       uploadImg: {
         url: 'http://localhost:8080/v1/upload',
         headers: {
@@ -40,45 +22,25 @@ export default {
     }
   },
   methods: {
-    save (val) {
+    save(val) {
       console.log(val)
     }
   }
 }
 </script>
-<style>
-/* 代码高亮风格 */
-@import "~highlight.js/styles/github.css";
-</style>
 ```
 
 ### 内容展示
 
 ```html
 <template>
-  <wmui-preview :content="content" :options="options"/>
+  <wmui-preview :content="content"/>
 </template>
 <script>
   export default {
     data() {
       return {
-        content: '## hello',
-        options: {}
-      }
-    },
-    mounted() {
-      if (process.browser) {
-        this.options = {
-          linkify: true,
-          highlight(str, lang = 'javascript') {
-            if (require('highlight.js').getLanguage(lang)) {
-              try {
-                return require('highlight.js').highlight(lang, str).value
-              } catch (__) {}
-            }
-            return ''
-          }
-        }
+        content: '## hello'
       }
     }
   }
@@ -91,14 +53,13 @@ export default {
 
 | 参数 | 描述 | 类型 | 默认值 | 可选值 | 备注 |
 |------|-----|------|--------|-------| ---- |
-| preview | 是否开启预览模式 | Boolean  | true | | |
+| preview | 是否开启预览模式 | Boolean  | true |
 | v-model | 编辑的内容 | String |  |
-| options | markdown-it的配置项 | Object | 参考[官方文档](https://github.com/markdown-it/markdown-it) |
 | zIndex  | 编辑器的层级 | number | 99 |
 | height  | 编辑器的高度 | String | 70vh |
 | upload  | 图片上传配置 | Object | | | 参考upload配置项说明 |
+| content | markdown内容 | String | | | 默认采用GitHub风格渲染内容 |
 | save | 当按下ctrl+s时执行的函数 | Function | | | 可在函数里执行数据的提交 | 
-
 
 #### upload配置项
 

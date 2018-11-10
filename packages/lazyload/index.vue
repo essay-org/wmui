@@ -2,7 +2,7 @@
   <img src="https://www.86886.wang/public/1533885924628.jpg" :data-src="src" v-lazyload class="wmui-lazyload">
 </template>
 <script>
-import {throttle} from '../_utils/util.js'
+import {throttle, isServer} from '../_utils/util.js'
 let imgList = []
 
 // 当图片出现在可视区域内后，替换掉src属性
@@ -30,6 +30,7 @@ export default {
   directives: {
     lazyload: {
       bind (el, binding) {
+        if (isServer) return false
         imgList.push(el) // 把所有img元素存放到数组
         throttle(loadImg, window) // 初始化，第一次进入页面时应该显示的图片
         window.addEventListener('scroll', function () {

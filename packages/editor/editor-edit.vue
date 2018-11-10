@@ -46,16 +46,17 @@
   </div>
 </template>
 <script>
+import {isServer} from '../_utils/util.js'
 import EditorPreview from './editor-preview.vue'
 // 选中内容的位置
-function getEditorSelection (editor) {
+function getEditorSelection(editor) {
   return {
     start: editor.selectionStart,
     end: editor.selectionEnd
   }
 }
 // 设置选中区域
-function setEditorRange (editor, start, length = 0) {
+function setEditorRange(editor, start, length = 0) {
   editor.setSelectionRange(start, start + length)
   editor.focus()
 }
@@ -85,7 +86,7 @@ export default {
       default: true
     }
   },
-  data () {
+  data() {
     return {
       content: '',
       html: '',
@@ -104,7 +105,7 @@ export default {
       statusMessage: { type: '', text: '', timeout: 0, show: false }
     }
   },
-  mounted () {
+  mounted() {
     this.uploadOpt = { ...this.uploadOpt, ...this.upload }
     // console.log(this.uploadOpt)
     // this.value接收v-model中的值
@@ -116,10 +117,11 @@ export default {
     }
   },
   watch: {
-    value (value) {
+    value(value) {
       if (this.content !== value) this.content = value
     },
-    content () {
+    content() {
+      if(isServer) return false
       this.$emit('input', this.content)
       this.scrollReset()
       if (this.content === this.history[this.currentIndex]) return
@@ -131,27 +133,28 @@ export default {
       }, 500)
     },
     // 执行了撤销或恢复，currentIndex会变化，重置内容
-    currentIndex () {
+    currentIndex() {
       let history = this.history[this.currentIndex]
       this.content = history
     }
   },
   computed: {
-    realHeight () {
+    realHeight() {
       if (this.isFullScreen) return '100%'
       return this.height
     },
     // ctrl+z
-    canUndo () {
+    canUndo() {
       return this.currentIndex > 0
     },
     // ctrl+y
-    canRedo () {
+    canRedo() {
       return this.currentIndex < this.history.length - 1
     }
   },
   methods: {
-    pasteEvent (event) {
+    pasteEvent(event) {
+      if(isServer) return false
       var items = (event.clipboardData || event.originalEvent.clipboardData).items
       for (let index in items) {
         let item = items[index]
@@ -164,7 +167,7 @@ export default {
         }
       }
     },
-    doPreview () {
+    doPreview() {
       if (!this.preview) {
         this.showContent = !this.showContent
         this.showPreview = !this.showPreview
@@ -172,10 +175,10 @@ export default {
         this.showContent = !this.showContent
       }
     },
-    doSave () {
+    doSave() {
       this.$emit('save', true)
     },
-    scrollReset () {
+    scrollReset() {
       let editor = this.$refs.editor
       let scrollHeight = (editor.scrollHeight - editor.clientHeight) || editor.scrollHeight
       // 获得被卷去的比例
@@ -186,7 +189,7 @@ export default {
       preview.scrollTop = preTop
     },
     // 快捷键配置
-    keydown (e) {
+    keydown(e) {
       let code = e.key
       if (e.ctrlKey === true || e.Meta) {
         let hotkey = 'Ctrl+' + code
@@ -227,7 +230,7 @@ export default {
       }
     },
 
-    insertTo (text, position = getEditorSelection(this.$refs.editor).start) {
+    insertTo(text, position = getEditorSelection(this.$refs.editor).start) {
       let before = this.content.substr(0, position)
       let after = this.content.substr(position)
       this.content = before + text + after
@@ -236,7 +239,7 @@ export default {
       })
     },
 
-    undo () {
+    undo() {
       // 光标位置
       let { start } = getEditorSelection(this.$refs.editor)
       // 撤销前内容的长度
@@ -251,7 +254,7 @@ export default {
         setEditorRange(this.$refs.editor, start)
       })
     },
-    redo () {
+    redo() {
       // 如果可以恢复，则currentIndex++
       let { start } = getEditorSelection(this.$refs.editor)
       let currentLength = this.content.length
@@ -262,30 +265,32 @@ export default {
       })
     },
 
-    _status (type, text, time = text.length / 10 * 1000) {
+    _status(type, text, time = text.length / 10 * 1000) {
+      if(isServer) return false
       window.clearTimeout(this.statusMessage.timeout)
       let timeout = setTimeout(() => {
         this.statusMessage.show = false
       }, time)
       this.statusMessage = { type, text, timeout, show: true }
     },
-    success (message, timeout) {
+    success(message, timeout) {
       this._status('success', message, timeout)
     },
-    error (message, timeout) {
+    error(message, timeout) {
       this._status('error', message, timeout)
     },
-    info (message, timeout) {
+    info(message, timeout) {
       this._status('info', message, timeout)
     },
-    closeStatus () {
+    closeStatus() {
       this.statusMessage.show = false
     },
 
-    uploadClick () {
+    uploadClick() {
       this.$refs.upload.click()
     },
-    fileUpload () {
+    fileUpload() {
+      if(isServer) return false
       let input = this.$refs.upload
       let upload = this.$emit('custom-upload', input)
       if (upload === false) return
@@ -293,7 +298,8 @@ export default {
       fileData.append(input.name, input.files[0])
       this.uploadFormData(fileData)
     },
-    uploadFormData (formData) {
+    uploadFormData(formData) {
+      if(isServer) return false
       if (!this.uploadOpt.url) {
         this.error('请先配置上传路径')
         return false
@@ -336,7 +342,7 @@ export default {
     },
 
     // 内容发生变化，执行
-    saveHistory () {
+    saveHistory() {
       // 第一次变化 this.history中还是原来的一项,
       this.history.splice(this.currentIndex + 1, this.history.length)
       // 变化后的内容添加进去，此时有两项
@@ -345,13 +351,13 @@ export default {
       this.currentIndex = this.history.length - 1
     },
     // 获取选中的文本
-    getSelectStr () {
+    getSelectStr() {
       let editor = this.$refs.editor
       let { start, end } = getEditorSelection(editor)
       let { select } = this.selectedStr(start, end)
       return select
     },
-    selectedStr (start, end) {
+    selectedStr(start, end) {
       // 选中文本前的文本
       let before = this.content.substr(0, start)
       // 选中的文本
@@ -366,143 +372,3 @@ export default {
   }
 }
 </script>
-<style>
-
-.wmui-edit {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #ccc;
-}
-
-.wmui-edit.full-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.wmui-edit .editor-wrap {
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.wmui-edit .editor-wrap .editor-menu {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  overflow-x: auto;
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 0;
-  border-bottom: 1px solid #ccc;
-  background-color: #fff;
-}
-
-.wmui-edit .editor-wrap .editor-menu .wmui {
-  display: inline-block;
-  padding: 10px;
-  font-size: 18px;
-  color: #a9a9a9;
-  cursor: pointer;
-}
-
-.wmui-edit .editor-wrap .editor-menu .disable {
-  color: #eee;
-  cursor: not-allowed;
-}
-
-.wmui-edit .editor-wrap .editor-content {
-  position: relative;
-  flex: 1;
-}
-
-.wmui-edit .editor-wrap .editor-content .content-wrap {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.wmui-edit .editor-wrap .editor-content .content-wrap .content-editor {
-  flex: 1;
-  position: relative;
-  font-size: 14px;
-  line-height: 24px;
-  border: 0;
-  border-right: 1px solid #ccc;
-  resize: none;
-  background-color: #f8f8f8;
-  padding: 15px;
-  outline: none;
-  overflow: auto;
-}
-
-.wmui-edit .editor-wrap .editor-content .content-wrap .content-preview {
-  flex: 1;
-  position: relative;
-  padding: 15px;
-  overflow: auto;
-  background-color: #fff;
-}
-
-.wmui-edit .editor-wrap .upload-status {
-  position: absolute;
-  top: 0;
-  padding: 8px;
-  background: rgba(0, 0, 0, 0.1);
-  width: 100%;
-  color: #333;
-}
-
-.wmui-edit .editor-wrap .upload-status.info {
-  background: rgba(130, 232, 255, 0.2);
-}
-
-.wmui-edit .editor-wrap .upload-status.success {
-  background: rgba(101, 255, 177, 0.2);
-}
-
-.wmui-edit .editor-wrap .upload-status.error {
-  background: rgba(255, 101, 101, 0.2);
-}
-
-.wmui-edit .editor-wrap .fade {
-  animation-duration: 0.2s;
-}
-
-.wmui-edit .editor-wrap .fade.in {
-  animation-name: fadeIn;
-}
-
-.wmui-edit .editor-wrap .fade.out {
-  animation-name: fadeOut;
-}
-
-@keyframes fadeIn {
-  .wmui-edit .editor-wrap 0% {
-    opacity: 0;
-  }
-  .wmui-edit .editor-wrap 50% {
-    opacity: 0.5;
-  }
-  .wmui-edit .editor-wrap 100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  .wmui-edit .editor-wrap 0% {
-    opacity: 1;
-  }
-  .wmui-edit .editor-wrap 50% {
-    opacity: 0.5;
-  }
-  .wmui-edit .editor-wrap 100% {
-    opacity: 0;
-  }
-}
-</style>

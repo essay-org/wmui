@@ -1,3 +1,4 @@
+import Vue from 'vue'
 /**
  * 节流函数
  * @param {function} fn 要执行的函数
@@ -27,3 +28,5 @@ export const offset = (el) => {
     top: top
   }
 }
+
+export const isServer = Vue.prototype.$isServer || process.server

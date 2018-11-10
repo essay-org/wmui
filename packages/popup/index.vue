@@ -65,35 +65,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.wmui-popup-bottom-enter-active,
-.wmui-popup-bottom-leave-active,
-.wmui-popup-top-enter-active,
-.wmui-popup-top-leave-active,
-.wmui-popup-left-enter-active,
-.wmui-popup-left-leave-active,
-.wmui-popup-right-enter-active,
-.wmui-popup-right-leave-active {
-  transition: all .3s ease-out;
-}
-
-.wmui-popup-bottom-enter,
-.wmui-popup-bottom-leave-to {
-  transform: translate3d(0, 100%, 0);
-}
-
-.wmui-popup-top-enter,
-.wmui-popup-top-leave-to {
-  transform: translate3d(0, -100%, 0);
-}
-
-.wmui-popup-left-enter,
-.wmui-popup-left-leave-to {
-  transform: translate3d(-100%, 0, 0);
-}
-
-.wmui-popup-right-enter,
-.wmui-popup-right-leave-to {
-  transform: translate3d(100%, 0, 0);
-}
-</style>

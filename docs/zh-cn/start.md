@@ -1,10 +1,8 @@
 ## WMUI
 
-wmui是一个基于Vue.js开发的前端组件库
+WMUI 是专为 SSR 而开发的Vue组件库，保证组件在服务器和浏览器环境都能完美运行。
 
-wmui没有复杂难记的API，每个组件只对外暴露必要的少量API
-
-wmui的组件均以功能型为主，对于样式型的组件可以自行扩展
+WMUI 尚处于开发阶段，仅供学习交流，不建议用于生产线上
 
 ### 安装
 
@@ -46,7 +44,7 @@ npm i babel-plugin-component -D
 ```json
 {
   ...
-  "plugins": ["transform-vue-jsx",["babel-plugin-component", {
+  "plugins": ["transform-vue-jsx", ["babel-plugin-component", {
     "libraryName": "wmui",
   }]]
   ...
@@ -67,3 +65,19 @@ new Vue({
 ```
 
 各个组件的使用方法请参阅其说明文档。
+
+### 参考项目
+
+WMUI的开发参考了以下开源项目：
+
+[iview](https://github.com/iview/iview)
+
+[Bootstrap](https://github.com/twbs/bootstrap)
+
+[Vant](https://github.com/youzan/vant)
+
+[Wdui](https://github.com/wdfe/wdui)
+
+### 开源协议
+
+MIT

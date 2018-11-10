@@ -1,0 +1,21 @@
+@import "../base/var.scss";
+
+.wmui-badge {
+  display: inline-block;
+  padding: 0 7px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  background-color: $red;
+  color: $white;
+  border-radius: 10px;
+
+  &-off {
+    text-indent: -9999px; // 文字隐藏
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border-radius: 50%;
+    min-width: 10px;
+  }
+}

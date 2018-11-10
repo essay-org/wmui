@@ -12,17 +12,17 @@ export default new Router({
     {
       path: '/',
       name: 'Index',
-      component: Index
+      component: Docs
     },
     {
       path: '/docs/:componentName?',
-      name: 'docs',
+      name: 'Docs',
       component: Docs
     },
     {
       path: '*',
       name: '404',
-      component: Index
+      component: Docs
     }
   ]
 })

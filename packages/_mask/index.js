@@ -1,29 +1,32 @@
 import Vue from 'vue'
 import MaskComponent from './Mask.vue'
+import {isServer} from '../_utils/util.js'
 const Mask = Vue.extend(MaskComponent)
 const maskManager = {
   instances: [],
   mask: null,
-  open (instance) {
+  open(instance) {
+    if (isServer) return {}
     // 实例不存在
     if (instance && this.instances.indexOf(instance) === -1) {
       let mask = this.mask = new Mask({
         el: document.createElement('div')
       })
-     // 遮罩层属性值初始化
+      // 遮罩层属性值初始化
       mask.fixed = instance.fixed
       mask.opacity = instance.maskOpacity
       mask.zIndex = instance.maskZIndex
       mask.onClick = this.handleMaskClick.bind(this)
       document.body.appendChild(mask.$el)
-     // DOM更新后，显示mask
+      // DOM更新后，显示mask
       Vue.nextTick(() => {
         mask.show = true
       })
       this.instances.push(instance)
     }
   },
-  close (instance) {
+  close(instance) {
+    if (isServer) return {}
     let index = this.instances.indexOf(instance)
     if (index !== -1) {
       Vue.nextTick(() => {
@@ -42,7 +45,7 @@ const maskManager = {
       })
     }
   },
-  handleMaskClick () {
+  handleMaskClick() {
     if (this.instances.length !== 0) {
       let instance = this.instances[this.instances.length - 1]
       // mask被点击后会emit一个自定义事件
@@ -74,7 +77,7 @@ export default {
       default: false
     }
   },
-  data () {
+  data() {
     return {
       zIndex: getZIndex(), // popup层级
       open: false, // mask默认状态
@@ -82,10 +85,10 @@ export default {
     }
   },
   methods: {
-    maskClick () { // 点击mask时触发的事件
+    maskClick() { // 点击mask时触发的事件
       this.$emit('maskClick')
     },
-    setZIndex () { // 设置popup和mask的层级
+    setZIndex() { // 设置popup和mask的层级
       const dom = this.$el
       if (!this.zIndex) {
         this.zIndex = getZIndex()
@@ -94,31 +97,31 @@ export default {
         dom.style.zIndex = this.zIndex
       }
     },
-    resetZIndex () {
+    resetZIndex() {
       this.maskZIndex = getZIndex()
       this.zIndex = getZIndex()
     }
   },
-  mounted () {
+  mounted() {
     if (this.mask && this.open) {
       maskManager.open(this)
     }
   },
-  update () {
+  update() {
     if (!this.mask) {
       this.setZIndex()
     }
   },
   // 关闭并移除mask
-  beforeDestroy () {
+  beforeDestroy() {
     maskManager.close(this)
   },
   watch: {
     // 监控组件上v-model值，并控制mask的状态
-    value (val) {
+    value(val) {
       this.open = val
     },
-    open (val, oldVal) {
+    open(val, oldVal) {
       // 当mask发生状态变化，层级进行重置，并打开或关闭mask遮罩层
       if (val === oldVal) return
       if (val) {
@@ -130,7 +133,7 @@ export default {
         maskManager.close(this)
       }
     },
-    mask (val, oldVal) { // 当mask属性发生状态变化，控制遮罩层打开关闭
+    mask(val, oldVal) { // 当mask属性发生状态变化，控制遮罩层打开关闭
       if (val === oldVal) return
       if (val) {
         maskManager.open(this)

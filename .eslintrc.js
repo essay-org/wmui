@@ -7,7 +7,6 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: 'standard',
   // required to lint *.vue files
   plugins: [
     'html'

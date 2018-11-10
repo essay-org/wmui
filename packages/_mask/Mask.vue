@@ -27,14 +27,14 @@ export default {
     }
   },
   methods: {
-    handleClick () {
+    handleClick() {
       if (this.onClick) {
         this.onClick()
       }
     }
   },
   computed: {
-    maskStyle () {
+    maskStyle() {
       return {
         'opacity': this.opacity,
         'position': this.fixed ? 'fixed' : '',
@@ -44,21 +44,4 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.wmui-mask {
-  position: absolute; // mask默认定位
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: #000;
-}
-.wmui-mask-fade-enter-active,
-.wmui-mask-fade-leave-active {
-  transition: opacity .45s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.wmui-mask-fade-enter,
-.wmui-mask-fade-leave-to {
-  opacity: 0 !important;
-}
-</style>
+

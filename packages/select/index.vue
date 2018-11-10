@@ -22,6 +22,7 @@
   </div>
 </template>
 <script>
+import {isServer} from '../_utils/util.js'
 export default {
   name: 'wmui-select',
   data () {
@@ -62,7 +63,9 @@ export default {
   components: {},
   mounted () {
     this.setFirstText()
-    document.addEventListener('click', this.showHide)
+    if (!isServer) {
+      document.addEventListener('click', this.showHide)
+    }
   },
   methods: {
     showHide (e) {
@@ -143,118 +146,3 @@ export default {
 }
 
 </script>
-
-<style lang="scss">
-@import '../../src/theme-default/var.scss';
-$select-width: 200px !default;
-$select-height: 30px !default;
-.wmui-select {
-  display: inline-block;
-  position: relative;
-  width: $select-width;
-  .select-control {
-    position: relative;
-    cursor: pointer;
-    .control-input {
-      // border-radius: 3px;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      border: 1px solid $gray-dark;
-      height: $select-height;
-      line-height: $select-height;
-    }
-    .icon-select {
-      position: absolute;
-      height: $select-height;
-      line-height: $select-height;
-      top: 0;
-      right: 0.5rem;
-      transition: all 0.2s;
-    }
-  }
-
-  .select-lists {
-    position: absolute;
-    width: 100%;
-    background: #fff;
-    overflow-x: hidden;
-    overflow-y: auto;
-    z-index: 99;
-    border: 1px solid $primary;
-    border-top: none;
-    li {
-      padding-left: 0.5rem;
-      height: $select-height;
-      line-height: $select-height;
-      &:hover {
-        background-color: $gray-light;
-      }
-      &.disabled {
-        color: $gray-dark;
-        cursor: not-allowed;
-      }
-      &.active {
-        background: $primary;
-        color: #fff;
-      }
-    }
-  }
-  &.disabled {
-    color: $gray-dark;
-    .control-input {
-      border:1px solid $gray;
-      cursor: not-allowed;
-    }
-  }
-  &.wmui-select-open {
-    z-index: 9; //这里引用输入框的焦点样式
-    .control-input {
-      border-color: $primary;
-    }
-    .icon-select {
-      transform: rotate(-180deg);
-    }
-  }
-  .lists-search {
-    border-bottom: 1px solid $gray;
-    .search-control {
-      border: none;
-      height: $select-height;
-      line-height: $select-height;
-    }
-  }
-}
-
-.select-drop-enter-active {
-  animation: selectDropDown 0.3s;
-  transform-origin: center top;
-}
-
-.select-drop-leave-active {
-  transform-origin: center top;
-  animation: selectDropUp 0.3s;
-  z-index: 99;
-}
-
-@keyframes selectDropDown {
-  0% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
-
-@keyframes selectDropUp {
-  0% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-}
-</style>

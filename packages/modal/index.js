@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import ModalComponent from './Modal.vue'
-
+import {
+  isServer
+} from '../_utils/util.js'
 const ModalConstructor = Vue.extend(ModalComponent)
 
 const init = (propsData) => {
@@ -11,6 +13,7 @@ const init = (propsData) => {
 
 const Modal = {
   alert (options = {}) {
+    if (isServer) return {}
     const instance = init({
       title: options.title,
       text: options.text,
@@ -30,6 +33,7 @@ const Modal = {
     return instance
   },
   confirm (options = {}) {
+    if (isServer) return {}
     const instance = init({
       title: options.title,
       text: options.text,
@@ -53,6 +57,7 @@ const Modal = {
     return instance
   },
   prompt (options = {}) {
+    if (isServer) return {}
     const instance = init({
       title: options.title,
       text: options.text,

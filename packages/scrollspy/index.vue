@@ -2,15 +2,8 @@
   <div class="wmui-scrollspy">
     <section class="wmui-scrollspy-navs">
       <ul>
-        <li 
-          :class="{'wmui-scrollspy-active': activeIndex === 0}" 
-          @click="go(0)"
-          v-if="defaultNav">{{ defaultNav }}</li>
-        <li 
-          v-for="(item, index) in panelNavs" 
-          :key="index" 
-          @click="go(index + 1)" 
-          :class="{'wmui-scrollspy-active': (index + 1) === activeIndex}">{{ item }}</li>
+        <li :class="{'wmui-scrollspy-active': activeIndex === 0}" @click="go(0)" v-if="defaultNav">{{ defaultNav }}</li>
+        <li v-for="(item, index) in panelNavs" :key="index" @click="go(index + 1)" :class="{'wmui-scrollspy-active': (index + 1) === activeIndex}">{{ item }}</li>
         <li @click="backTop" v-if="hasBackTop">顶部</li>
       </ul>
     </section>
@@ -21,7 +14,7 @@
 </template>
 <script>
 import animation from '../_utils/animation'
-import { offset } from '../_utils/util'
+import { offset, isServer } from '../_utils/util.js'
 export default {
   name: 'wmui-scrollspy',
   props: {
@@ -38,13 +31,13 @@ export default {
       default: ''
     }
   },
-  data () {
+  data() {
     return {
       scrollInfo: [],
       activeIndex: 0
     }
   },
-  mounted () {
+  mounted() {
     // 初始化每个wmui-scroll-panel盒子的高度
     const els = document.querySelectorAll('.wmui-scrollspy-panel')
     const len = els.length
@@ -56,7 +49,7 @@ export default {
     }, false)
   },
   methods: {
-    go (index) {
+    go(index) {
       let end = this.scrollInfo[index - 1]
       let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
       if (index === 0) {
@@ -66,13 +59,13 @@ export default {
         document.body.scrollTop = document.documentElement.scrollTop = value
       })
     },
-    backTop () {
+    backTop() {
       let doc = document.body.scrollTop || document.documentElement.scrollTop
       animation(doc, 0, 300, 'Linear', function (value) {
         document.body.scrollTop = document.documentElement.scrollTop = value
       })
     },
-    scrollActive () {
+    scrollActive() {
       let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
       let len = this.scrollInfo.length
       for (let index = 0; index < len; index++) {
