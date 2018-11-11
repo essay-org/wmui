@@ -14,11 +14,11 @@ const Toast = (options = {}) => {
     document.body.appendChild(ToastInstance.$el)
   }
   ToastInstance.text = options.text
-  ToastInstance.position = options.position
+  ToastInstance.position = options.position || 'top'
   ToastInstance.show = showToast = true
   setTimeout(() => {
     ToastInstance.show = showToast = false
-  }, options.duration)
+  }, options.duration || 2000)
 }
 
 export default Toast

@@ -81,7 +81,7 @@ Vue.use(wmui)
 
 ```js
 plugins: [
-  {src: '~plugins/wmui', ssr: true}
+  {src: '~plugins/wmui.js', ssr: true}
 ],
 ```
 
