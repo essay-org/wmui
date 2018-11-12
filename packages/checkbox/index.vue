@@ -1,6 +1,12 @@
 <template>
   <label :class="['wmui-checkbox', {'wmui-checkbox-disabled': disabled}]">
-    <input type="checkbox" v-model="currentCheck" :disabled="disabled" :value="checkboxValue" @change="changeValue" class="wmui-checkbox-input">
+    <input 
+      type="checkbox" 
+      v-model="currentCheck" 
+      :disabled="disabled" 
+      :value="checkboxValue" 
+      @change="changeValue" 
+      class="wmui-checkbox-input">
     <span class="wmui-checkbox-button"><i class="wmui icon-check"></i></span>
     <span class="wmui-checkbox-text">{{ checkboxText || checkboxValue}}</span>
   </label>
@@ -9,17 +15,15 @@
 export default {
   name: 'wmui-checkbox',
   props: {
-    checkboxValue: String,
-    checkboxText: String,
+    checkboxValue: [String, Number, Boolean],
+    checkboxText: [String, Number, Boolean],
     disabled: {
       type: Boolean,
       default: false
     },
     value: {
-      type: Array,
-      default: function () {
-        return []
-      }
+      type: [Array, Boolean],
+      default: () => []
     }
   },
   data() {

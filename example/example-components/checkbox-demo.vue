@@ -17,6 +17,9 @@
       :checkboxValue="item.value"/>
     </div>
     <p class="mb20"> {{value2}} </p>
+    <!-- 方式三，单个复选框 -->
+    <wmui-checkbox v-model="value3" :checkboxValue="value3" checkboxText="我已阅读用户协议"/>
+    <p class="mb20">{{ value3 }}</p>
   </div>
 </template>
 <script>
@@ -28,24 +31,25 @@
         listData2: [
           {
             text: '选项1',
-            value: '1'
+            value: 1
           },
           {
             text: '选项2',
-            value: '2'
+            value: 2
           },
           {
             text: '选项3',
-            value: '3',
+            value: 3,
             disabled: true
           },
           {
             text: '选项4',
-            value: '4',
+            value: 4,
             disabled: true
           }
         ],
-        value2:['1', '4'],
+        value2:[1, 4],
+        value3: true,
       }
     }
   }
