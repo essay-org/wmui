@@ -13,7 +13,6 @@ const maskManager = {
         el: document.createElement('div')
       })
       // 遮罩层属性值初始化
-      mask.fixed = instance.fixed
       mask.opacity = instance.maskOpacity
       mask.zIndex = instance.maskZIndex
       mask.onClick = this.handleMaskClick.bind(this)
@@ -76,10 +75,6 @@ export default {
       type: Number,
       default: 0.4
     },
-    fixed: { // mask是否fixed定位，默认absolute
-      type: Boolean,
-      default: false
-    }
   },
   data() {
     return {

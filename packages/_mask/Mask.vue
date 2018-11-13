@@ -11,10 +11,6 @@ export default {
       type: Boolean,
       default: false
     },
-    fixed: {
-      type: Boolean,
-      default: false
-    },
     opacity: {
       type: Number,
       default: 0.4
@@ -37,7 +33,6 @@ export default {
     maskStyle() {
       return {
         'opacity': this.opacity,
-        'position': this.fixed ? 'fixed' : '',
         'z-index': this.zIndex
       }
     }
