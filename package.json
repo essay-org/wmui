@@ -1,6 +1,6 @@
 {
   "name": "wmui",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Vue.js Components Library",
   "main": "lib/index.js",
   "repository": {

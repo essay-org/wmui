@@ -1,8 +1,6 @@
 @import "../base/var.scss";
 .wmui-radio {
   position: relative;
-  display: flex;
-
   &-input {
     cursor: pointer;
     z-index: 9;
@@ -28,6 +26,7 @@
   line-height: 1;
   padding-left: 10px;
   cursor: pointer;
+  vertical-align: 2px;
 }
 
 

@@ -1,3 +1,5 @@
+@import './var.scss';
+
 body,
 div,
 dl,
@@ -42,17 +44,12 @@ select,
 textarea {
   font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, tahoma, arial, Verdana, sans-serif, "WenQuanYi Micro Hei", "\5B8B\4F53";
   font-size: 16px;
-  color: #333;
+  color: $black-dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background-color: #fff;
-}
-
 a {
-  color: #337AB7;
   text-decoration: none;
   cursor: pointer;
   outline: none;
@@ -68,12 +65,6 @@ textarea:focus {
   outline: none;
 }
 
-ol,
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
 img {
   display: inline-block;
