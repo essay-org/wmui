@@ -25,14 +25,14 @@
         type: String
       },
       value: {
-        type: [String,Number]
+        type: [String, Number]
       },
       radioText: {
-        type: String,
+        type: [String, Number],
         default: ''
       },
       radioValue: {
-        type: String,
+        type: [String, Number],
         default: ''
       }
     },
